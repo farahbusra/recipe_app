@@ -11,6 +11,19 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int currentIndex = 0;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +32,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           Expanded(
             child: PageView.builder(
-              // itemCount: contents.length,
-              // onboardingScreenChanged: (int index) {
-              //   setState(() {
-
-              //   });
-              // },
+              controller: _pageController,
+              itemCount: contents.length,
+              onPageChanged: (int index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
               itemBuilder: (_, arr) {
                 return Padding(
                   padding: const EdgeInsets.all(40),
@@ -55,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 contents.length,
-                (index) => buildBot(context, index),
+                (index) => buildDot(context, index),
               ),
             ),
           ),
@@ -70,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   bottom: 40,
                 ),
                 child: FlatButton(
-                  child: Text('Prev'),
+                  child: Text('Skip'),
                   onPressed: () {},
                   textColor: Colors.black,
                   shape: RoundedRectangleBorder(
@@ -89,8 +103,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   bottom: 40,
                 ),
                 child: FlatButton(
-                  child: Text('Next'),
-                  onPressed: () {},
+                  child: Text(currentIndex == contents.length - 1
+                      ? 'Get Started!'
+                      : 'Next'),
+                  onPressed: () {
+                    if (currentIndex == contents.length - 1) {
+                      // Navigator.push(context, MaterialPageRoute(builder: (_)=>))
+                    }
+                    _pageController.nextPage(
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.bounceIn);
+                  },
                   color: Theme.of(context).primaryColor,
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -108,10 +131,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  Container buildBot(BuildContext context, int index) {
+  Container buildDot(BuildContext context, int index) {
     return Container(
       height: 10,
-      width: 10,
+      width: currentIndex == index ? 25 : 10,
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
