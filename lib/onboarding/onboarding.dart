@@ -86,7 +86,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 child: FlatButton(
                   child: Text('Skip'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => HomePage()));
+                  },
                   textColor: Colors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
@@ -140,7 +143,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).primaryColor,
+        color: currentIndex == index
+            ? Theme.of(context).primaryColor
+            : Color(0xFF888888),
       ),
     );
   }

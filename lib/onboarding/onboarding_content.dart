@@ -1,29 +1,27 @@
-import 'package:recipe_app/onboarding/onboarding.dart';
-
-class onboardingContent {
+class OnboardingContent {
   String image;
   String title;
   String descriptions;
 
-  onboardingContent({
+  OnboardingContent({
     required this.image,
     required this.title,
     required this.descriptions,
   });
 }
 
-List<onboardingContent> contents = [
-  onboardingContent(
+List<OnboardingContent> contents = [
+  OnboardingContent(
     title: 'QWERTY',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
   ),
-  onboardingContent(
+  OnboardingContent(
     title: 'ASDFGH',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
   ),
-  onboardingContent(
+  OnboardingContent(
     title: 'ZXCVBN',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
