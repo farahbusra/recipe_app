@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:recipe_app/pages/homepage.dart';
 import 'onboarding_content.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -108,7 +109,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       : 'Next'),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {
-                      // Navigator.push(context, MaterialPageRoute(builder: (_)=>))
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => HomePage()));
                     }
                     _pageController.nextPage(
                         duration: Duration(milliseconds: 100),

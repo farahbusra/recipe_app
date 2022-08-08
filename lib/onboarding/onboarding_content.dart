@@ -1,4 +1,4 @@
-import 'package:recipe_app/pages/onboarding.dart';
+import 'package:recipe_app/onboarding/onboarding.dart';
 
 class onboardingContent {
   String image;
