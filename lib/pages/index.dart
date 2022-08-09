@@ -85,7 +85,7 @@ class _MyIndexState extends State<MyIndex> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.book,
+                icon: Icons.dining,
                 text: 'Recipe',
               ),
               GButton(
