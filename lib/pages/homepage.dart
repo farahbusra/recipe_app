@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:recipe_app/router/router_cubit.dart';
+import 'package:recipe_app/router/router_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,56 +12,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int count = 0;
-  int currentIndex = 0;
+  late final RouterCubit _routerCubit;
+  final _pageOptions = <TabData>[
+    HomeTabData(),
+    RecipeTabData(),
+    FavTabData(),
+    ProfileTabData()
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _routerCubit = RouterCubit();
+  }
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
+
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        title: Text('CookBook'),
+        title: const Text('CookBook'),
         centerTitle: true,
+        backgroundColor: primaryColor,
+        elevation: 0, // Remove App Bar Shadow
       ),
-      body: Container(
-        child: Text('This is a page'),
-      ),
-
-      //Bottom Navigation Bar - to navigate between different pages
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.book,
-            ),
-            label: 'Recipes',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite,
-            ),
-            label: 'Favourite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: currentIndex,
-        onTap: (int index) {
-          setState(() {
-            currentIndex = index;
-          });
+      body: BlocBuilder<RouterCubit, RouterState>(
+        bloc: _routerCubit,
+        builder: (context, state) {
+          if (state.isInside<HomeTabData>()) {
+            return const Text("Home page ahead");
+          } else if (state.isInside<RecipeTabData>()) {
+            return const Text("Recipe page ahead");
+          } else if (state.isInside<FavTabData>()) {
+            return const Text("Fav page ahead");
+          } else if (state.isInside<ProfileTabData>()) {
+            return const Text("Profile page ahead");
+          } else {
+            assert(false);
+            return Container();
+          }
         },
       ),
     );

@@ -12,17 +12,17 @@ class OnboardingContent {
 
 List<OnboardingContent> contents = [
   OnboardingContent(
-    title: 'QWERTY',
+    title: 'Recipe Is A Story That Ends With A Good Meal',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
   ),
   OnboardingContent(
-    title: 'ASDFGH',
+    title: 'Discover New Recipe With Us',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
   ),
   OnboardingContent(
-    title: 'ZXCVBN',
+    title: 'Cooking Experiece Like A Professional Chef',
     image: 'assets/testing.jpg',
     descriptions: 'bruh i dont know what is this man i swear to god',
   ),

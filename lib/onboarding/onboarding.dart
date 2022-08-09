@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:recipe_app/pages/homepage.dart';
+import '../pages/homepage.dart';
 import 'onboarding_content.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -84,19 +83,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   top: 40,
                   bottom: 40,
                 ),
+                // ignore: deprecated_member_use
                 child: FlatButton(
                   child: Text('Skip'),
                   onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => HomePage()));
+                    navigateToHomePage(context);
+                    // Navigator.push(
+                    //     context, MaterialPageRoute(builder: (_) => HomePage()));
                   },
                   textColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                    ),
-                  ),
                 ),
               ),
               Container(
@@ -106,14 +101,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   top: 40,
                   bottom: 40,
                 ),
+                // ignore: deprecated_member_use
                 child: FlatButton(
                   child: Text(currentIndex == contents.length - 1
                       ? 'Get Started!'
                       : 'Next'),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => HomePage()));
+                      navigateToHomePage(context);
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (_) => HomePage()));
                     }
                     _pageController.nextPage(
                         duration: Duration(milliseconds: 100),
@@ -121,7 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   },
                   color: Theme.of(context).primaryColor,
                   textColor: Colors.white,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       bottomLeft: Radius.circular(10),
@@ -149,4 +146,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
+}
+
+void navigateToHomePage(BuildContext context) {
+  Navigator.pushNamed(
+    context,
+    '/index',
+  );
 }
