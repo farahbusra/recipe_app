@@ -148,8 +148,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 void navigateToHomePage(BuildContext context) {
-  Navigator.pushNamed(
-    context,
-    '/index',
-  );
+  // Navigator.pushNamed(
+  //   context,
+  //   '/index',
+  // );
+  Navigator.of(context).pushNamedAndRemoveUntil("/index", (route) => false);
 }
