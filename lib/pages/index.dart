@@ -42,10 +42,16 @@ class _MyIndexState extends State<MyIndex> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text('CookBook'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.restaurant_menu),
+            const SizedBox(width: 10),
+            const Text('Foodie Recipe'),
+          ],
+        ),
         centerTitle: true,
         backgroundColor: primaryColor,
-        elevation: 0, // Remove App Bar Shadow
       ),
       body: BlocBuilder<RouterCubit, RouterState>(
         bloc: _routerCubit,

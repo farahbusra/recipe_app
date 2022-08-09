@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Foodie Recipe',
-      theme: ThemeData(primarySwatch: Colors.amber),
+      // theme: ThemeData.light(),
       home: OnboardingScreen(),
       routes: {
         '/index': (context) => const MyIndex(),
