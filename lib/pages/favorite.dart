@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:recipe_app/pages/homepage.dart';
+import 'package:recipe_app/pages/index.dart';
 
 class FavouritePage extends StatefulWidget {
   const FavouritePage({Key? key}) : super(key: key);
@@ -10,11 +10,6 @@ class FavouritePage extends StatefulWidget {
 }
 
 class _FavouritePageState extends State<FavouritePage> {
-  int _selectedPage = 0;
-  final _pageOptions = [
-    HomePage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Center(
