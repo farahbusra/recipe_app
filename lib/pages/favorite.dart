@@ -22,26 +22,24 @@ class _FavouritePageState extends State<FavouritePage> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Favourites',
-              style: TextStyle(color: paragraphColor),
+              style: TextStyle(color: primaryColor),
             ),
-            SizedBox(width: 6),
           ],
         ),
-        bottom: PreferredSize(
-          child: Container(
-            color: paragraphColor,
-            height: 2,
-          ),
-          preferredSize: Size.fromHeight(4),
-        ),
-        // elevation: 0,
+        toolbarHeight: 70,
+        elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
       body: Center(child: Text('this is the recipe page')),
     );

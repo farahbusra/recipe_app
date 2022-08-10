@@ -15,6 +15,7 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFFFFFFFE);
+    const tertiaryColor = Color(0xFFE45858);
     const buttonColor = Color(0xFF6246EA);
 
     return Padding(
@@ -23,7 +24,7 @@ class ProfileMenu extends StatelessWidget {
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(20),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          backgroundColor: buttonColor,
+          backgroundColor: tertiaryColor,
         ),
         onPressed: press,
         child: Row(
@@ -69,28 +70,24 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Profile',
-              style: TextStyle(
-                color: paragraphColor,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-              ),
+              style: TextStyle(color: primaryColor),
             ),
           ],
         ),
-        bottom: PreferredSize(
-          child: Container(
-            color: paragraphColor,
-            height: 2,
-          ),
-          preferredSize: Size.fromHeight(4),
-        ),
+        toolbarHeight: 70,
+        elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
