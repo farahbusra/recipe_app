@@ -4,13 +4,10 @@ import 'package:recipe_app/pages/index.dart';
 
 class recipeCard extends StatelessWidget {
   final String title;
-  final String rating;
-  final String cookTime;
+
   final String thumbnailUrl;
   recipeCard({
     required this.title,
-    required this.cookTime,
-    required this.rating,
     required this.thumbnailUrl,
   });
 
@@ -36,7 +33,7 @@ class recipeCard extends StatelessWidget {
         ],
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.35),
+            Colors.black.withOpacity(0.38),
             BlendMode.multiply,
           ),
           image: NetworkImage(thumbnailUrl),
@@ -50,9 +47,7 @@ class recipeCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
                 title,
-                style: TextStyle(
-                  fontSize: 19,
-                ),
+                style: TextStyle(fontSize: 20, color: Colors.white),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 textAlign: TextAlign.center,
@@ -60,51 +55,15 @@ class recipeCard extends StatelessWidget {
             ),
             alignment: Alignment.center,
           ),
-          Align(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.yellow,
-                        size: 18,
-                      ),
-                      SizedBox(width: 7),
-                      Text(rating),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.schedule,
-                        color: Colors.yellow,
-                        size: 18,
-                      ),
-                      SizedBox(width: 7),
-                      Text(cookTime),
-                    ],
-                  ),
-                )
-              ],
+          Container(
+            alignment: Alignment.topRight,
+            padding: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
+            child: Icon(
+              Icons.favorite,
+              color: Colors.red,
+              size: 24,
             ),
-            alignment: Alignment.bottomLeft,
           ),
         ],
       ),
@@ -146,12 +105,46 @@ class _FavouritePageState extends State<FavouritePage> {
         centerTitle: true,
         backgroundColor: primaryColor,
       ),
-      body: recipeCard(
-        title: "My recipe",
-        rating: '4.9',
-        cookTime: '30 min',
-        thumbnailUrl:
-            'https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360',
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            recipeCard(
+              title: "Tomato Soup",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Chicken and Mushroom Pie",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Macaroni Cheese",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Risotto",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Spaghetti Bolognese",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Chocolate Brownies",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+            ),
+            recipeCard(
+              title: "Pizza",
+              thumbnailUrl:
+                  'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+            ),
+          ],
+        ),
       ),
     );
   }
