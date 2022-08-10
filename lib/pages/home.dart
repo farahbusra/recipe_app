@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 6),
             Icon(
               Icons.restaurant_menu,
-              color: tertiaryColor,
+              color: buttonColor,
             ),
             SizedBox(width: 6),
             Text(
@@ -41,7 +41,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        elevation: 0,
+        bottom: PreferredSize(
+          child: Container(
+            color: paragraphColor,
+            height: 2,
+          ),
+          preferredSize: Size.fromHeight(4),
+        ),
+        // elevation: 0,
         centerTitle: true,
         backgroundColor: primaryColor,
       ),

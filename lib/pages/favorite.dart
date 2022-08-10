@@ -26,13 +26,20 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Recipe',
+              'Favourites',
               style: TextStyle(color: paragraphColor),
             ),
             SizedBox(width: 6),
           ],
         ),
-        elevation: 0,
+        bottom: PreferredSize(
+          child: Container(
+            color: paragraphColor,
+            height: 2,
+          ),
+          preferredSize: Size.fromHeight(4),
+        ),
+        // elevation: 0,
         centerTitle: true,
         backgroundColor: primaryColor,
       ),

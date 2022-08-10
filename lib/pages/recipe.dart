@@ -30,6 +30,13 @@ class _RecipePageState extends State<RecipePage> {
             SizedBox(width: 6),
           ],
         ),
+        bottom: PreferredSize(
+          child: Container(
+            color: paragraphColor,
+            height: 2,
+          ),
+          preferredSize: Size.fromHeight(4),
+        ),
         elevation: 0,
         centerTitle: true,
         backgroundColor: primaryColor,

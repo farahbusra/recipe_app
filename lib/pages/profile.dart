@@ -15,16 +15,15 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFFFFFFFE);
-    const tertiaryColor = Color(0xFFE45858);
+    const buttonColor = Color(0xFF6246EA);
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 8),
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(20),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: tertiaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          backgroundColor: buttonColor,
         ),
         onPressed: press,
         child: Row(
@@ -35,6 +34,7 @@ class ProfileMenu extends StatelessWidget {
                 child: Text(text,
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 16,
                     ))),
             Icon(
               Icons.arrow_forward_ios,
@@ -66,69 +66,102 @@ class _ProfilePageState extends State<ProfilePage> {
     const secondaryColor = Color(0xFFD1D1E9);
     const tertiaryColor = Color(0xFFE45858);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        CircleAvatar(
-          child: SizedBox(height: 30),
-          backgroundColor: Colors.black,
-          radius: 45.0,
-          backgroundImage: NetworkImage(
-              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
-        ),
-        SizedBox(height: 20),
-        Text(
-          'Natalie Portman',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 22.0),
-        ),
-        SizedBox(height: 5),
-        Text(
-          'natalie.man@gmail.com',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16.0),
-        ),
-        SizedBox(height: 15),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
+    return Scaffold(
+      backgroundColor: primaryColor,
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ProfileMenu(
-              text: "My Account",
-              icon: const Icon(
-                Icons.person,
-                color: primaryColor,
+            Text(
+              'Profile',
+              style: TextStyle(
+                color: paragraphColor,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
               ),
-              press: () => {},
-            ),
-            ProfileMenu(
-              text: "Notifications",
-              icon: const Icon(
-                Icons.notifications,
-                color: primaryColor,
-              ),
-              press: () => {},
-            ),
-            ProfileMenu(
-              text: "Recipes",
-              icon: const Icon(
-                Icons.book,
-                color: primaryColor,
-              ),
-              press: () => {},
-            ),
-            ProfileMenu(
-              text: "Logout",
-              icon: const Icon(
-                Icons.logout,
-                color: primaryColor,
-              ),
-              press: () => {},
             ),
           ],
         ),
-      ],
+        bottom: PreferredSize(
+          child: Container(
+            color: paragraphColor,
+            height: 2,
+          ),
+          preferredSize: Size.fromHeight(4),
+        ),
+        centerTitle: true,
+        backgroundColor: primaryColor,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(
+            child: SizedBox(height: 30),
+            backgroundColor: Colors.black,
+            radius: 50,
+            backgroundImage: NetworkImage(
+                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+          ),
+          SizedBox(height: 16),
+          Text(
+            'Natalie Portman',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'natalie.man@gmail.com',
+            style: TextStyle(
+              color: paragraphColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 15),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ProfileMenu(
+                text: "My Account",
+                icon: const Icon(
+                  Icons.person,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Notifications",
+                icon: const Icon(
+                  Icons.notifications,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Recipes",
+                icon: const Icon(
+                  Icons.book,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Logout",
+                icon: const Icon(
+                  Icons.logout,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

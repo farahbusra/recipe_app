@@ -63,7 +63,7 @@ class _MyIndexState extends State<MyIndex> {
       bottomNavigationBar: Container(
         // color: Colors.black,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: GNav(
             color: buttonColor,
             activeColor: primaryColor,
@@ -84,7 +84,7 @@ class _MyIndexState extends State<MyIndex> {
               ),
               GButton(
                 icon: Icons.favorite,
-                text: 'Favourite',
+                text: 'Favourites',
               ),
               GButton(
                 icon: Icons.person,
