@@ -34,6 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     const tertiaryColor = Color(0xFFE45858);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Expanded(
@@ -48,7 +49,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               itemBuilder: (_, arr) {
                 return Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+                      // CopyWith to copy the code and remove the entity
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 100)
+                          .copyWith(bottom: 0),
                   child: Column(
                     children: [
                       Image.asset(
@@ -90,10 +93,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: 60,
+                height: 70,
                 width: 130,
                 margin: const EdgeInsets.only(
-                  bottom: 40,
+                  bottom: 60,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
@@ -110,10 +113,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               Container(
-                height: 60,
+                height: 70,
                 width: 130,
                 margin: const EdgeInsets.only(
-                  bottom: 40,
+                  bottom: 60,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
@@ -154,7 +157,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Container(
       height: 10,
       width: currentIndex == index ? 25 : 10,
-      margin: const EdgeInsets.only(right: 9, bottom: 50),
+      margin: const EdgeInsets.only(right: 9, bottom: 60),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: currentIndex == index
