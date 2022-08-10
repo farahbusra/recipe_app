@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:recipe_app/pages/recipe_detail.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class RecipePage extends StatefulWidget {
+  const RecipePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<RecipePage> createState() => _RecipePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _RecipePageState extends State<RecipePage> {
   late final TextEditingController _controller;
   bool _isRecipeNameEmpty = true;
 
@@ -28,9 +25,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
+
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text('Search Recipe'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Recipe',
+              style: TextStyle(color: paragraphColor),
+            ),
+            SizedBox(width: 6),
+          ],
+        ),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: primaryColor,
       ),
       body: Center(
           child: Column(
@@ -52,17 +69,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(buttonColor)),
             child: const Text('Search'),
             onPressed: _isRecipeNameEmpty
                 ? null
                 : () {
                     Navigator.pushNamed(context, '/recipedetail',
                         arguments: RecipeDetail(foodName: _controller.text));
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             RecipeDetail(foodName: _controller.text)));
                   },
           )
         ],

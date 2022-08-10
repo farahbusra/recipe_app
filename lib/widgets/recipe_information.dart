@@ -35,6 +35,8 @@ class RecipeInformation extends StatelessWidget {
                     'strIngredient':
                         recipeName.meals.elementAt(index).strIngredient,
                     'strMeasure': recipeName.meals.elementAt(index).strMeasure,
+                    'strInstructions':
+                        recipeName.meals.elementAt(index).strInstructions
                   }));
             },
             child: Card(
@@ -43,7 +45,7 @@ class RecipeInformation extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image.network(
-                    '${meal.strMealThumb}',
+                    '${recipeName.meals.elementAt(index).strMealThumb}',
                     fit: BoxFit.fill,
                     height: 200,
                     width: 150,
@@ -56,56 +58,6 @@ class RecipeInformation extends StatelessWidget {
               )),
             ));
       }),
-      // children:
-      //   Card(
-      //     child: Text(
-      //       'Category: ${meal.strCategory}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Origin: ${meal.strArea}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Tag: ${meal.strTags}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Dish: ${meal.strYoutube}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Dish: ${meal.strMealThumb}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Ingredients: ${meal.strIngredient}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Measurements: ${meal.strMeasure}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      //   Card(
-      //     child: Text(
-      //       'Instructions: ${meal.strInstructions}',
-      //       style: TextStyle(fontSize: 20),
-      //     ),
-      //   ),
-      // ],
     );
   }
 }

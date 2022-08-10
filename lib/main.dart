@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/onboarding/onboarding.dart';
+import 'package:recipe_app/pages/home.dart';
+import 'package:recipe_app/pages/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/models/recipe_model.dart';
-import 'package:recipe_app/pages/home_page.dart';
 import 'package:recipe_app/pages/recipe_detail.dart';
 import 'package:recipe_app/pages/recipe_full_info.dart';
 import 'package:recipe_app/states/recipe_cubit.dart';
@@ -17,10 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Foodie Recipe',
       initialRoute: '/',
       onGenerateRoute: (settings) {
         switch (settings.name) {
@@ -37,7 +36,10 @@ class MyApp extends StatelessWidget {
             );
         }
       },
-      home: const HomePage(),
+      home: OnboardingScreen(),
+      routes: {
+        '/index': (context) => const MyIndex(),
+      },
     );
   }
 }

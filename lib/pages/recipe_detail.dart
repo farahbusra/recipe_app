@@ -17,13 +17,34 @@ class RecipeDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
+
     RecipeCubit cubit = BlocProvider.of<RecipeCubit>(context)
       ..fetchRecipe(foodName);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        title: const Text('Recipe Detail'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Recipe List',
+              style: TextStyle(color: paragraphColor),
+            ),
+            SizedBox(
+              width: 6,
+            )
+          ],
+        ),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: primaryColor,
       ),
       body: Center(
         child: BlocBuilder<RecipeCubit, RecipeState>(
