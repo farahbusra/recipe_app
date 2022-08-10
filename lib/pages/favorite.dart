@@ -91,6 +91,11 @@ class _FavouritePageState extends State<FavouritePage> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -98,12 +103,12 @@ class _FavouritePageState extends State<FavouritePage> {
               'Favourite',
               style: TextStyle(color: paragraphColor),
             ),
-            SizedBox(width: 6),
           ],
         ),
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -24,14 +24,14 @@ class ProfileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFFFFFFFE);
     const tertiaryColor = Color(0xFFE45858);
+    const buttonColor = Color(0xFF6246EA);
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 8),
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(20),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: tertiaryColor,
         ),
         onPressed: press,
@@ -43,6 +43,7 @@ class ProfileMenu extends StatelessWidget {
                 child: Text(text,
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 16,
                     ))),
             Icon(
               Icons.arrow_forward_ios,
@@ -77,8 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   'Cancel',
                   style: TextStyle(color: buttonColor),
                 ),
-                onPressed: () => Navigator.pop(context, 'Cancel'),  
-
+                onPressed: () => Navigator.pop(context, 'Cancel'),
               ),
               TextButton(
                 child: const Text('Yes'),
@@ -93,62 +93,80 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // const primaryColor = Color(0xFFFFFFFE);
-    // const paragraphColor = Color(0xFF2B2C34);
-    // const buttonTextColor = Color(0xFFFFFFFE);
-    // const buttonColor = Color(0xFF6246EA);
-    // const secondaryColor = Color(0xFFD1D1E9);
-    // const tertiaryColor = Color(0xFFE45858);
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
 
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Profile',
-              style: TextStyle(color: paragraphColor),
+              'Foodie',
+              style: TextStyle(color: primaryColor),
             ),
             SizedBox(width: 6),
+            Icon(
+              Icons.restaurant_menu,
+              color: primaryColor,
+            ),
+            SizedBox(width: 6),
+            Text(
+              'Recipe',
+              style: TextStyle(color: primaryColor),
+            ),
           ],
         ),
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
-            child: SizedBox(height: 20),
-            radius: 45.0,
+            child: SizedBox(height: 30),
+            backgroundColor: Colors.black,
+            radius: 50,
             backgroundImage: NetworkImage(
                 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 16),
           Text(
             'Natalie Portman',
             style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 22.0),
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           Text(
             'natalie.man@gmail.com',
             style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 16.0),
-          ),
-          SizedBox(height: 10),
-          Divider(
-            color: Colors.grey,
-            thickness: 0.3,
+              color: paragraphColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+            ),
           ),
           SizedBox(height: 8),
+          Divider(
+            color: Colors.grey,
+            thickness: 0.6,
+          ),
+          SizedBox(height: 6),
           Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,

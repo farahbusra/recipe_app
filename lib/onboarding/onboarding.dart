@@ -50,7 +50,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 return Padding(
                   padding:
                       // CopyWith to copy the code and remove the entity
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 100)
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 120)
                           .copyWith(bottom: 0),
                   child: Column(
                     children: [
