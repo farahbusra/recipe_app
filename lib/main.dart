@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/models/recipe_model.dart';
 import 'package:recipe_app/pages/home_page.dart';
+import 'package:recipe_app/pages/recipe_detail.dart';
+import 'package:recipe_app/pages/recipe_full_info.dart';
 import 'package:recipe_app/states/recipe_cubit.dart';
 
 void main() {
@@ -19,6 +21,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(builder: (context) => HomePage());
+          case '/recipedetail':
+            RecipeDetail data = settings.arguments as RecipeDetail;
+            return MaterialPageRoute(
+                builder: (context) => RecipeDetail(foodName: data.foodName));
+          case '/recipefullinfo':
+            RecipeFullInfo data = settings.arguments as RecipeFullInfo;
+            return MaterialPageRoute(
+              builder: (context) => RecipeFullInfo(meal: data.meal),
+            );
+        }
+      },
       home: const HomePage(),
     );
   }

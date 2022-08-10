@@ -56,11 +56,13 @@ class _HomePageState extends State<HomePage> {
             onPressed: _isRecipeNameEmpty
                 ? null
                 : () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                RecipeDetail(foodName: _controller.text)));
+                    Navigator.pushNamed(context, '/recipedetail',
+                        arguments: RecipeDetail(foodName: _controller.text));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             RecipeDetail(foodName: _controller.text)));
                   },
           )
         ],
