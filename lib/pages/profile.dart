@@ -64,69 +64,95 @@ class _ProfilePageState extends State<ProfilePage> {
     const secondaryColor = Color(0xFFD1D1E9);
     const tertiaryColor = Color(0xFFE45858);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        CircleAvatar(
-          child: SizedBox(height: 30),
-          backgroundColor: Colors.black,
-          radius: 45.0,
-          backgroundImage: NetworkImage(
-              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
-        ),
-        SizedBox(height: 20),
-        Text(
-          'Natalie Portman',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 22.0),
-        ),
-        SizedBox(height: 5),
-        Text(
-          'natalie.man@gmail.com',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16.0),
-        ),
-        SizedBox(height: 15),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
+    return Scaffold(
+      backgroundColor: primaryColor,
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ProfileMenu(
-              text: "My Account",
-              icon: const Icon(
-                Icons.person,
-                color: primaryColor,
-              ),
-              press: () => {},
+            Text(
+              'Profile',
+              style: TextStyle(color: paragraphColor),
             ),
-            ProfileMenu(
-              text: "Notifications",
-              icon: const Icon(
-                Icons.notifications,
-                color: primaryColor,
-              ),
-              press: () => {},
-            ),
-            ProfileMenu(
-              text: "Recipes",
-              icon: const Icon(
-                Icons.book,
-                color: primaryColor,
-              ),
-              press: () => {},
-            ),
-            ProfileMenu(
-              text: "Logout",
-              icon: const Icon(
-                Icons.logout,
-                color: primaryColor,
-              ),
-              press: () => {},
-            ),
+            SizedBox(width: 6),
           ],
         ),
-      ],
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: primaryColor,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(
+            child: SizedBox(height: 20),
+            radius: 45.0,
+            backgroundImage: NetworkImage(
+                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Natalie Portman',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 22.0),
+          ),
+          SizedBox(height: 5),
+          Text(
+            'natalie.man@gmail.com',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 16.0),
+          ),
+          SizedBox(height: 10),
+          Divider(
+            color: Colors.grey,
+            thickness: 0.3,
+          ),
+          SizedBox(height: 8),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ProfileMenu(
+                text: "My Account",
+                icon: const Icon(
+                  Icons.person,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Notifications",
+                icon: const Icon(
+                  Icons.notifications,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Recipes",
+                icon: const Icon(
+                  Icons.book,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+              ProfileMenu(
+                text: "Logout",
+                icon: const Icon(
+                  Icons.logout,
+                  color: primaryColor,
+                ),
+                press: () => {},
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
