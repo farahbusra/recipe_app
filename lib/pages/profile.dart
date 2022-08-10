@@ -87,6 +87,11 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16.0),
         ),
+        new Divider(
+          Size
+          color: Colors.grey,
+          thickness: 0.5,
+        ),
         SizedBox(height: 15),
         Column(
           mainAxisSize: MainAxisSize.min,
