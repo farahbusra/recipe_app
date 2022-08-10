@@ -34,7 +34,7 @@ class _RecipePageState extends State<RecipePage> {
             ),
           ],
         ),
-        toolbarHeight: 70,
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
         backgroundColor: buttonColor,

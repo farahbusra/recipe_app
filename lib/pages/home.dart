@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -48,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        toolbarHeight: 70,
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
         backgroundColor: buttonColor,
@@ -59,6 +61,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 8),
               Text(
                 'Hello, Natalie!',
                 style: GoogleFonts.lato(
@@ -69,37 +72,75 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 4),
               Text(
                 'Make your own food,\nstay at home!',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
-                    fontSize: 24,
+                    fontSize: 26,
                     fontWeight: FontWeight.w900,
                     color: paragraphColor,
                   ),
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 16),
               // Search Bar Function
               CupertinoSearchTextField(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 borderRadius: BorderRadius.circular(6),
+                placeholder: 'Search Recipe',
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 16),
               Text(
                 'Popular Recipes',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
-                    fontSize: 24,
+                    fontSize: 26,
                     fontWeight: FontWeight.w900,
                     color: paragraphColor,
                   ),
                 ),
               ),
+              const SizedBox(height: 12),
+              Container(
+                height: 300,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    recipeCard(),
+                    const SizedBox(width: 20),
+                    recipeCard(),
+                    const SizedBox(width: 20),
+                    recipeCard(),
+                    const SizedBox(width: 20),
+                    recipeCard(),
+                    const SizedBox(width: 20),
+                  ],
+                ),
+              )
             ],
           ),
         ),
       ),
     );
   }
+
+  Widget recipeCard() => Container(
+        width: 300,
+        // height: 240,
+        color: Colors.grey,
+        child: Column(
+          children: [
+            Image.asset('assets/onboarding_1.png'),
+            Text(
+              'Chicken',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            )
+          ],
+        ),
+      );
 }
