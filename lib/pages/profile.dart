@@ -93,29 +93,44 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // const primaryColor = Color(0xFFFFFFFE);
-    // const paragraphColor = Color(0xFF2B2C34);
-    // const buttonTextColor = Color(0xFFFFFFFE);
-    // const buttonColor = Color(0xFF6246EA);
-    // const secondaryColor = Color(0xFFD1D1E9);
-    // const tertiaryColor = Color(0xFFE45858);
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
 
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Profile',
-              style: TextStyle(color: paragraphColor),
+              'Foodie',
+              style: TextStyle(color: primaryColor),
             ),
             SizedBox(width: 6),
+            Icon(
+              Icons.restaurant_menu,
+              color: primaryColor,
+            ),
+            SizedBox(width: 6),
+            Text(
+              'Recipe',
+              style: TextStyle(color: primaryColor),
+            ),
           ],
         ),
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -146,7 +161,12 @@ class _ProfilePageState extends State<ProfilePage> {
               fontSize: 16,
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 8),
+          Divider(
+            color: Colors.grey,
+            thickness: 0.6,
+          ),
+          SizedBox(height: 6),
           Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
