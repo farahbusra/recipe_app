@@ -14,7 +14,12 @@ class recipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      margin: EdgeInsets.only(
+        top: 0,
+        right: 20,
+        bottom: 30,
+        left: 20,
+      ),
       width: MediaQuery.of(context).size.width,
       height: 180,
       decoration: BoxDecoration(
@@ -100,8 +105,8 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourite',
-              style: TextStyle(color: paragraphColor),
+              'Favourites',
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),
@@ -113,6 +118,7 @@ class _FavouritePageState extends State<FavouritePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(height: 30),
             recipeCard(
               title: "Tomato Soup",
               thumbnailUrl:

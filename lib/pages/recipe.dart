@@ -30,7 +30,7 @@ class _RecipePageState extends State<RecipePage> {
           children: [
             Text(
               'Recipe',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),

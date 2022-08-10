@@ -27,10 +27,10 @@ class ProfileMenu extends StatelessWidget {
     const buttonColor = Color(0xFF6246EA);
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8),
       child: TextButton(
         style: TextButton.styleFrom(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: tertiaryColor,
         ),
@@ -38,14 +38,14 @@ class ProfileMenu extends StatelessWidget {
         child: Row(
           children: [
             icon,
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Expanded(
                 child: Text(text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                     ))),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: primaryColor,
             ),
@@ -112,18 +112,8 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Foodie',
-              style: TextStyle(color: primaryColor),
-            ),
-            SizedBox(width: 6),
-            Icon(
-              Icons.restaurant_menu,
-              color: primaryColor,
-            ),
-            SizedBox(width: 6),
-            Text(
-              'Recipe',
-              style: TextStyle(color: primaryColor),
+              'Profile',
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),
@@ -166,7 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
             color: Colors.grey,
             thickness: 0.6,
           ),
-          SizedBox(height: 6),
+          SizedBox(height: 12),
           Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,

@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               'Foodie',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
             SizedBox(width: 6),
             Icon(
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 6),
             Text(
               'Recipe',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               // Search Bar Function
               CupertinoSearchTextField(
                 padding:
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(6),
                 placeholder: 'Search Recipe',
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               Text(
                 'Popular Recipes',
                 style: GoogleFonts.lato(
