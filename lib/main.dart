@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Foodie Recipe',
-      theme: ThemeData(primarySwatch: Colors.amber),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      // ),
       home: OnboardingScreen(),
       routes: {
         '/index': (context) => const MyIndex(),

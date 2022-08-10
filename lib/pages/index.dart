@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:recipe_app/pages/profile.dart';
-import 'package:recipe_app/pages/recipes.dart';
+import 'package:recipe_app/pages/recipe.dart';
 import 'package:recipe_app/router/router_cubit.dart';
 import 'package:recipe_app/router/router_state.dart';
 import 'package:recipe_app/pages/favorite.dart';
@@ -41,12 +41,6 @@ class _MyIndexState extends State<MyIndex> {
 
     return Scaffold(
       backgroundColor: primaryColor,
-      appBar: AppBar(
-        title: const Text('CookBook'),
-        centerTitle: true,
-        backgroundColor: primaryColor,
-        elevation: 0, // Remove App Bar Shadow
-      ),
       body: BlocBuilder<RouterCubit, RouterState>(
         bloc: _routerCubit,
         builder: (context, state) {

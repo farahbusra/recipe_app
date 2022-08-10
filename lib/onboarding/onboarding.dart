@@ -26,7 +26,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
+    const secondaryColor = Color(0xFFD1D1E9);
+    const tertiaryColor = Color(0xFFE45858);
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Expanded(
@@ -40,22 +48,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               itemBuilder: (_, arr) {
                 return Padding(
-                  padding: const EdgeInsets.all(40),
+                  padding:
+                      // CopyWith to copy the code and remove the entity
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 100)
+                          .copyWith(bottom: 0),
                   child: Column(
                     children: [
                       Image.asset(
                         contents[arr].image,
-                        height: 300,
-                      ),
-                      Text(
-                        contents[arr].title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        height: 240,
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        contents[arr].descriptions,
+                        contents[arr].title,
+                        style: const TextStyle(
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        contents[arr].description,
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
                       )
                     ],
                   ),
@@ -76,51 +93,55 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: 80,
-                width: 140,
+                height: 70,
+                width: 130,
                 margin: const EdgeInsets.only(
-                  top: 40,
-                  bottom: 40,
+                  bottom: 60,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
-                  child: Text('Skip'),
+                  child: Text(
+                    'Skip',
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                   onPressed: () {
                     navigateToHomePage(context);
-                    // Navigator.push(
-                    //     context, MaterialPageRoute(builder: (_) => HomePage()));
                   },
                   textColor: Colors.black,
                 ),
               ),
               Container(
-                height: 80,
-                width: 140,
+                height: 70,
+                width: 130,
                 margin: const EdgeInsets.only(
-                  top: 40,
-                  bottom: 40,
+                  bottom: 60,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
-                  child: Text(currentIndex == contents.length - 1
-                      ? 'Get Started!'
-                      : 'Next'),
+                  child: Text(
+                    currentIndex == contents.length - 1
+                        ? 'Get Started!'
+                        : 'Next',
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {
                       navigateToHomePage(context);
-                      // Navigator.push(context,
-                      //     MaterialPageRoute(builder: (_) => HomePage()));
                     }
                     _pageController.nextPage(
                         duration: Duration(milliseconds: 100),
                         curve: Curves.bounceIn);
                   },
-                  color: Theme.of(context).primaryColor,
+                  color: buttonColor,
                   textColor: Colors.white,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
+                      topLeft: Radius.circular(6),
+                      bottomLeft: Radius.circular(6),
                     ),
                   ),
                 ),
@@ -136,12 +157,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Container(
       height: 10,
       width: currentIndex == index ? 25 : 10,
-      margin: const EdgeInsets.only(right: 8),
+      margin: const EdgeInsets.only(right: 9, bottom: 60),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: currentIndex == index
-            ? Theme.of(context).primaryColor
-            : Color(0xFF888888),
+            ? const Color(0xFF6246EA)
+            : const Color(0xFFD1D1E9),
       ),
     );
   }

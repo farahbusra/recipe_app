@@ -17,8 +17,24 @@ class _RecipePageState extends State<RecipePage> {
     const secondaryColor = Color(0xFFD1D1E9);
     const tertiaryColor = Color(0xFFE45858);
 
-    return Center(
-      child: Text("You lovly craving is here"),
+    return Scaffold(
+      backgroundColor: primaryColor,
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Recipe',
+              style: TextStyle(color: paragraphColor),
+            ),
+            SizedBox(width: 6),
+          ],
+        ),
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: primaryColor,
+      ),
+      body: Center(child: Text('this is the recipe page')),
     );
   }
 }
