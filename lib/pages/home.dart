@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("You lovly craving is here"),
+      child: Text("This is the homepage content"),
     );
   }
 }

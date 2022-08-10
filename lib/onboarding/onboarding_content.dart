@@ -15,7 +15,7 @@ List<OnboardingContent> contents = [
     title: 'Recipe Is A Story That Ends With A Good Meal',
     image: 'assets/onboarding_1.png',
     description:
-        'We provides clear instructions for you to cook a wonderful meal and share it with your love ones.',
+        'We provide clear instructions for you to cook a wonderful meal and share it with your love ones.',
   ),
   OnboardingContent(
     title: 'Discover New Recipe With Us',

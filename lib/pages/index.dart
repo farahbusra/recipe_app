@@ -45,9 +45,15 @@ class _MyIndexState extends State<MyIndex> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.restaurant_menu),
-            const SizedBox(width: 10),
-            const Text('Foodie Recipe'),
+            Icon(
+              Icons.restaurant_menu,
+              color: paragraphColor,
+            ),
+            SizedBox(width: 10),
+            Text(
+              'Foodie Recipe',
+              style: TextStyle(color: paragraphColor),
+            ),
           ],
         ),
         centerTitle: true,
