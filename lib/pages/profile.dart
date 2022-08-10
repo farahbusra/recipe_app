@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+const primaryColor = Color(0xFFFFFFFE);
+const paragraphColor = Color(0xFF2B2C34);
+const buttonTextColor = Color(0xFFFFFFFE);
+const buttonColor = Color(0xFF6246EA);
+const secondaryColor = Color(0xFFD1D1E9);
+const tertiaryColor = Color(0xFFE45858);
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
@@ -49,45 +57,65 @@ class ProfileMenu extends StatelessWidget {
 }
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({
-    Key? key,
-  }) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  void showAlertDialog(BuildContext context) {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: const Text('Are you sure you want to exit?'),
+        actions: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: buttonColor),
+                ),
+                onPressed: () => Navigator.pop(context, 'Cancel'),
+              ),
+              TextButton(
+                child: const Text('Yes'),
+                onPressed: () => SystemNavigator.pop(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFFFFFFFE);
-    const paragraphColor = Color(0xFF2B2C34);
-    const buttonTextColor = Color(0xFFFFFFFE);
-    const buttonColor = Color(0xFF6246EA);
-    const secondaryColor = Color(0xFFD1D1E9);
-    const tertiaryColor = Color(0xFFE45858);
+    // const primaryColor = Color(0xFFFFFFFE);
+    // const paragraphColor = Color(0xFF2B2C34);
+    // const buttonTextColor = Color(0xFFFFFFFE);
+    // const buttonColor = Color(0xFF6246EA);
+    // const secondaryColor = Color(0xFFD1D1E9);
+    // const tertiaryColor = Color(0xFFE45858);
 
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(40),
-          ),
-        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Profile',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: paragraphColor),
             ),
+            SizedBox(width: 6),
           ],
         ),
-        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: buttonColor,
+        backgroundColor: primaryColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +170,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileMenu(
                 text: "Recipes",
                 icon: const Icon(
-                  Icons.book,
+                  Icons.dining,
                   color: primaryColor,
                 ),
                 press: () => {},
@@ -153,7 +181,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   Icons.logout,
                   color: primaryColor,
                 ),
-                press: () => {},
+                press: () => {
+                  Navigator.pop(context, true),
+                  showAlertDialog(context),
+                },
               ),
             ],
           ),
