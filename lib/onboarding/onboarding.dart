@@ -58,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         contents[arr].image,
                         height: 240,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                       Text(
                         contents[arr].title,
                         style: const TextStyle(
@@ -96,10 +96,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 height: 70,
                 width: 130,
                 margin: const EdgeInsets.only(
-                  bottom: 60,
+                  bottom: 80,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   child: Text(
                     'Skip',
                     style: const TextStyle(
@@ -116,7 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 height: 70,
                 width: 130,
                 margin: const EdgeInsets.only(
-                  bottom: 60,
+                  bottom: 80,
                 ),
                 // ignore: deprecated_member_use
                 child: FlatButton(
@@ -157,7 +159,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Container(
       height: 10,
       width: currentIndex == index ? 25 : 10,
-      margin: const EdgeInsets.only(right: 9, bottom: 60),
+      margin: const EdgeInsets.only(right: 9, bottom: 50),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: currentIndex == index
@@ -169,9 +171,5 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 void navigateToHomePage(BuildContext context) {
-  // Navigator.pushNamed(
-  //   context,
-  //   '/index',
-  // );
   Navigator.of(context).pushNamedAndRemoveUntil("/index", (route) => false);
 }
