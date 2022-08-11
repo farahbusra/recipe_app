@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/pages/recipe_detail.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RecipePage extends StatefulWidget {
   const RecipePage({Key? key}) : super(key: key);
@@ -62,43 +63,67 @@ class _RecipePageState extends State<RecipePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Foodie Recipe'),
-              const Text('Find healthy and nutritious food recipe here!'),
+              Row(
+                children: [
+                  Text(
+                    'Foodie',
+                    style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                        color: paragraphColor,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 6),
+                  Icon(
+                    Icons.restaurant_menu,
+                    color: paragraphColor,
+                  ),
+                  SizedBox(width: 6),
+                  Text(
+                    'Recipe',
+                    style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                        color: paragraphColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Find healthy and nutritious food recipe here!',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: paragraphColor,
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 20,
               ),
-              // CupertinoSearchTextField(
-              //   padding:
-              //       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              //   borderRadius: BorderRadius.circular(6),
-              //   placeholder: 'Ingredients Name',
-              // ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Text(
-                    'Please enter recipe name',
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   SizedBox(
-                    width: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: TextField(
-                        controller: _controller,
-                        decoration: InputDecoration(
-                            hintText: 'Food name',
-                            border: OutlineInputBorder()),
-                      ),
+                    width: 270,
+                    height: 60,
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                          hintText: 'Enter Recipe Name',
+                          border: OutlineInputBorder()),
                     ),
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(buttonColor)),
+                      backgroundColor: MaterialStateProperty.all(buttonColor),
+                    ),
                     child: const Text('Search'),
                     onPressed: _isRecipeNameEmpty
                         ? null
