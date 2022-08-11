@@ -18,7 +18,9 @@ class RecipeName {
   String toJson() => json.encode(toMap());
 
   factory RecipeName.fromMap(Map<String, dynamic> json) => RecipeName(
-        meals: List<Meal>.from(json["meals"].map((x) => Meal.fromMap(x))),
+        meals: json["meals"] == null
+            ? <Meal>[]
+            : List<Meal>.from(json["meals"].map((x) => Meal.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
@@ -69,12 +71,12 @@ class Meal {
         idMeal: json["idMeal"],
         strMeal: json["strMeal"],
         strDrinkAlternate: json["strDrinkAlternate"],
-        strCategory: json["strCategory"],
-        strArea: json["strArea"],
-        strInstructions: json["strInstructions"],
-        strMealThumb: json["strMealThumb"],
-        strTags: json["strTags"],
-        strYoutube: json["strYoutube"],
+        strCategory: json["strCategory"] ?? 'Unknown Category',
+        strArea: json["strArea"] ?? 'Unknown Region',
+        strInstructions: json["strInstructions"] ?? 'No instructions available',
+        strMealThumb: json["strMealThumb"] ?? 'No Picture available',
+        strTags: json["strTags"] ?? 'No related taste available',
+        strYoutube: json["strYoutube"] ?? 'No Video available',
         strIngredient: _getIngredients(json),
         strMeasure: _getMeasures(json),
         strSource: json["strSource"],
