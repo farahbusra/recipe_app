@@ -10,9 +10,12 @@ class RecipePage extends StatefulWidget {
 }
 
 class _RecipePageState extends State<RecipePage> {
+<<<<<<<<< Temporary merge branch 1
   late final TextEditingController _controller;
   bool _isRecipeNameEmpty = true;
+=========
   List<bool> optionSelected = [true, false, false, false, false];
+>>>>>>>>> Temporary merge branch 2
 
   @override
   void initState() {
@@ -35,77 +38,113 @@ class _RecipePageState extends State<RecipePage> {
     const tertiaryColor = Color(0xFFE45858);
 
     return Scaffold(
-        backgroundColor: primaryColor,
-        appBar: AppBar(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(40),
-            ),
+      backgroundColor: primaryColor,
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
           ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Recipe',
+              style: TextStyle(color: primaryColor, fontSize: 22),
+            ),
+          ],
+        ),
+        toolbarHeight: 80,
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: buttonColor,
+      ),
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Recipe',
-                style: TextStyle(color: primaryColor, fontSize: 22),
+              const Text('Foodie Recipe'),
+              const Text('Find healthy and nutritious food recipe here!'),
+              const SizedBox(
+                height: 20,
               ),
+              CupertinoSearchTextField(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                borderRadius: BorderRadius.circular(6),
+                placeholder: 'Search Recipe',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ListView(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  filteredOption(
+                      'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
+                  const SizedBox(width: 24),
+                  filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
+                  const SizedBox(width: 24),
+                  filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
+                  const SizedBox(width: 24),
+                  filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
+                  const SizedBox(width: 24),
+                  filteredOption('Steal', 'assets/icons8-steak-50.png', 4),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text('All Recipe'),
+              // Container(
+              //   height: 190,
+              //   child: PageView(
+              //     physics: BouncingScrollPhysics(),
+              //     children: buildRecipeList(),
+              //   ),
+              // )
             ],
           ),
-          toolbarHeight: 80,
-          elevation: 0,
-          centerTitle: true,
-          backgroundColor: buttonColor,
         ),
-        body: SafeArea(
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Foodie Recipe'),
-                const Text('Find healthy and nutritious food recipe here!'),
-                const SizedBox(
-                  height: 20,
-                ),
-                CupertinoSearchTextField(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  borderRadius: BorderRadius.circular(6),
-                  placeholder: 'Search Recipe',
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ListView(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    filteredOption(
-                        'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
-                    const SizedBox(width: 24),
-                    filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
-                    const SizedBox(width: 24),
-                    filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                    const SizedBox(width: 24),
-                    filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
-                    const SizedBox(width: 24),
-                    filteredOption('Steal', 'assets/icons8-steak-50.png', 4),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text('All Recipe'),
-                // Container(
-                //   height: 190,
-                //   child: PageView(
-                //     physics: BouncingScrollPhysics(),
-                //     children: buildRecipeList(),
-                //   ),
-                // )
-              ],
+      ),
+<<<<<<<<< Temporary merge branch 1
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Please enter recipe name',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                  hintText: 'Food name', border: OutlineInputBorder()),
             ),
           ),
-        ));
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(buttonColor)),
+            child: const Text('Search'),
+            onPressed: _isRecipeNameEmpty
+                ? null
+                : () {
+                    Navigator.pushNamed(context, '/recipedetail',
+                        arguments: RecipeDetail(foodName: _controller.text));
+                  },
+          )
+        ],
+      )),
+=========
+>>>>>>>>> Temporary merge branch 2
+    );
   }
 
   Widget filteredOption(String options, String image, int index) {
