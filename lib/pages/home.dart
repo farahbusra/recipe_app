@@ -94,13 +94,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 12),
-              // Search Bar Function
-              CupertinoSearchTextField(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                borderRadius: BorderRadius.circular(6),
-                placeholder: 'Search Recipe',
-              ),
+              // Landing Page Banner
               const SizedBox(height: 12),
               Text(
                 'Popular Recipes',

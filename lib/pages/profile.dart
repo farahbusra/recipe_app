@@ -65,20 +65,36 @@ class _ProfilePageState extends State<ProfilePage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        content: const Text('Are you sure you want to exit?'),
+        content: const Text(
+          'Are you sure you want to exit?',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.left,
+        ),
         actions: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
                 child: const Text(
                   'Cancel',
-                  style: TextStyle(color: buttonColor),
+                  style: TextStyle(
+                    color: buttonColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 onPressed: () => Navigator.pop(context, 'Cancel'),
               ),
               TextButton(
-                child: const Text('Yes', style: TextStyle(color: buttonColor)),
+                child: const Text('Yes',
+                    style: TextStyle(
+                      color: buttonColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    )),
                 onPressed: () => SystemNavigator.pop(),
               ),
             ],
@@ -92,20 +108,36 @@ class _ProfilePageState extends State<ProfilePage> {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        content: const Text('Do you want to turn on notifications?'),
+        content: const Text(
+          'Do you want to turn on notifications?',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.left,
+        ),
         actions: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
                 child: const Text(
                   'Cancel',
-                  style: TextStyle(color: buttonColor),
+                  style: TextStyle(
+                    color: buttonColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 onPressed: () => Navigator.pop(context, 'Cancel'),
               ),
               TextButton(
-                child: const Text('Yes', style: TextStyle(color: buttonColor)),
+                child: const Text('Yes',
+                    style: TextStyle(
+                      color: buttonColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    )),
                 onPressed: () => Navigator.pop(context, 'Yes'),
               ),
             ],
