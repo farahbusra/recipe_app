@@ -18,104 +18,123 @@ class RecipeFullInfo extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: primaryColor,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Dish Recipe',
-              style: TextStyle(color: paragraphColor),
+              'Food Recipe',
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.network(
-                  "${meal.strMealThumb}",
-                  width: 350.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Container(
-                child: ListTile(
-                  title: Text(
-                    "${meal.strMeal}",
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w500,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network(
+                      "${meal.strMealThumb}",
+                      width: 350.0,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-              ),
-              Container(
-                child: Card(
-                  child: ListTile(
+                  Container(
+                    child: ListTile(
                       title: Text(
-                    "Dish Category: ${meal.strCategory}\n\nDish Region: ${meal.strArea}\n\nRelated Taste: ${meal.strTags}\n\nRelated Taste: ${meal.strTags}",
-                    style: TextStyle(fontSize: 16),
-                  )),
-                  elevation: 9,
-                  shadowColor: buttonColor,
-                  margin: EdgeInsets.all(20),
-                  shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: Colors.white)),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Video: ${meal.strYoutube}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
-              ),
-              Card(
-                child: ListTile(
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      for (String measure in _getIngredients())
-                        Text(
-                          measure,
-                          style: TextStyle(fontSize: 15),
+                        "${meal.strMeal}",
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.w500,
                         ),
-                    ],
+                      ),
+                    ),
                   ),
-                ),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
+                  Container(
+                    child: Card(
+                      child: ListTile(
+                          title: Text(
+                        "Dish Category: ${meal.strCategory}\n\nDish Region: ${meal.strArea}\n\nRelated Taste: ${meal.strTags}\n\nRelated Taste: ${meal.strTags}",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                      elevation: 9,
+                      shadowColor: buttonColor,
+                      margin: EdgeInsets.all(20),
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                        title: Text(
+                      "Video: ${meal.strYoutube}",
+                      style: TextStyle(fontSize: 15),
+                    )),
+                    elevation: 9,
+                    shadowColor: buttonColor,
+                    margin: EdgeInsets.all(20),
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (String measure in _getIngredients())
+                            Text(
+                              measure,
+                              style: TextStyle(fontSize: 15),
+                            ),
+                        ],
+                      ),
+                    ),
+                    elevation: 9,
+                    shadowColor: buttonColor,
+                    margin: EdgeInsets.all(20),
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)),
+                  ),
+                  Card(
+                    child: ListTile(
+                        title: Text(
+                      "Instructions: ${meal.strInstructions}",
+                      style: TextStyle(fontSize: 15),
+                    )),
+                    elevation: 9,
+                    shadowColor: buttonColor,
+                    margin: EdgeInsets.all(20),
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)),
+                  ),
+                ],
               ),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Instructions: ${meal.strInstructions}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
-              ),
-            ],
+            ),
           ),
         ),
       ),

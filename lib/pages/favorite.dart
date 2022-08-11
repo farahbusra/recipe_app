@@ -113,7 +113,7 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourites',
+              'People\'s Favourites',
               style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
