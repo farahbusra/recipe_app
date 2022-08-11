@@ -25,7 +25,6 @@ class RecipeFullInfo extends StatelessWidget {
               'Dish Recipe',
               style: TextStyle(color: paragraphColor),
             ),
-            SizedBox(width: 6),
           ],
         ),
         elevation: 0,
@@ -36,58 +35,39 @@ class RecipeFullInfo extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
-              Image.network("${meal['strMealThumb']}"),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Dish Name: ${meal['strMeal']}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.network(
+                  "${meal['strMealThumb']}",
+                  width: 350.0,
+                  fit: BoxFit.cover,
+                ),
               ),
-              Card(
+              Container(
                 child: ListTile(
-                    title: Text(
-                  "Dish Category: ${meal['strCategory']}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
+                  title: Text(
+                    "${meal['strMeal']}",
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Dish Region: ${meal['strArea']}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
-              ),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Related Taste: ${meal['strTags']}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
+              Container(
+                child: Card(
+                  child: ListTile(
+                      title: Text(
+                    "Dish Category: ${meal['strCategory']}\n\nDish Region: ${meal['strArea']}\n\nRelated Taste: ${meal['strTags']}\n\nRelated Taste: ${meal['strTags']}",
+                    style: TextStyle(fontSize: 16),
+                  )),
+                  elevation: 9,
+                  shadowColor: buttonColor,
+                  margin: EdgeInsets.all(20),
+                  shape: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.white)),
+                ),
               ),
               Card(
                 child: ListTile(
@@ -104,23 +84,17 @@ class RecipeFullInfo extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                    title: Text(
-                  "Ingredients: ${meal['strIngredient'].toString().substring(1, meal['strIngredient'].toString().length - 1)}",
-                  style: TextStyle(fontSize: 15),
-                )),
-                elevation: 9,
-                shadowColor: buttonColor,
-                margin: EdgeInsets.all(20),
-                shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white)),
-              ),
-              Card(
-                child: ListTile(
-                    title: Text(
-                  "Measurement: ${meal['strMeasure'].toString().substring(1, meal['strMeasure'].toString().length - 1)}",
-                  style: TextStyle(fontSize: 15),
-                )),
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (String measure in _getIngredients())
+                        Text(
+                          measure,
+                          style: TextStyle(fontSize: 15),
+                        ),
+                    ],
+                  ),
+                ),
                 elevation: 9,
                 shadowColor: buttonColor,
                 margin: EdgeInsets.all(20),
@@ -146,5 +120,25 @@ class RecipeFullInfo extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<String> _getIngredients() {
+    List<String> foodRecipe = [];
+
+    List<String> ingredients = meal['strIngredient']
+        .toString()
+        .substring(1, meal['strIngredient'].toString().length - 1)
+        .split(',');
+
+    List<String> measures = meal['strMeasure']
+        .toString()
+        .substring(1, meal['strMeasure'].toString().length - 1)
+        .split(',');
+
+    for (int i = 0; i < ingredients.length; i++) {
+      foodRecipe.add('${ingredients[i]}: ${measures[i]}');
+    }
+
+    return foodRecipe;
   }
 }

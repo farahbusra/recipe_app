@@ -145,10 +145,6 @@ class _RecipePageState extends State<RecipePage> {
                     filteredOption(
                         'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
                     const SizedBox(width: 24),
-                    filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                    const SizedBox(width: 24),
-                    filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                    const SizedBox(width: 24),
                     filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
                     const SizedBox(width: 24),
                     filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
