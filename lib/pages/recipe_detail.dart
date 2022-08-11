@@ -1,6 +1,7 @@
 import 'package:recipe_app/states/recipe_cubit.dart';
 import 'package:recipe_app/widgets/recipe_information.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,35 +31,56 @@ class RecipeDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: primaryColor,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Recipe List',
-              style: TextStyle(color: paragraphColor),
+              'Recipes You\'ve Search For',
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
-            SizedBox(
-              width: 6,
-            )
           ],
         ),
+        toolbarHeight: 80,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: buttonColor,
       ),
-      body: Center(
-        child: BlocBuilder<RecipeCubit, RecipeState>(
-            bloc: cubit,
-            builder: (context, state) {
-              if (state is RecipeLoading) {
-                return const CircularProgressIndicator();
-              } else if (state is RecipeLoaded) {
-                return RecipeInformation(recipeName: state.recipeName);
-                // , meal: state.meal.)
-              } else {
-                return Text(state is RecipeError ? state.errorMessage : '');
-              }
-            }),
+      body: SafeArea(
+        child: Container(
+          padding:
+              const EdgeInsets.only(top: 0, right: 10, bottom: 40, left: 10),
+          child: Center(
+            child: BlocBuilder<RecipeCubit, RecipeState>(
+                bloc: cubit,
+                builder: (context, state) {
+                  if (state is RecipeLoading) {
+                    return Center(
+                      child: Lottie.network(
+                          'https://assets8.lottiefiles.com/packages/lf20_szviypry.json'),
+                    );
+                    // return const CircularProgressIndicator();
+                  } else if (state is RecipeLoaded) {
+                    return RecipeInformation(recipeName: state.recipeName);
+                    // , meal: state.meal.)
+                  } else {
+                    return Text(state is RecipeError ? state.errorMessage : '');
+                  }
+                }),
+          ),
+        ),
       ),
     );
   }

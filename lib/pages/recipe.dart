@@ -70,7 +70,7 @@ class _RecipePageState extends State<RecipePage> {
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w800,
                         color: paragraphColor,
                       ),
                     ),
@@ -86,7 +86,7 @@ class _RecipePageState extends State<RecipePage> {
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w800,
                         color: paragraphColor,
                       ),
                     ),
@@ -95,7 +95,7 @@ class _RecipePageState extends State<RecipePage> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Find healthy and nutritious food recipe here!',
+                'Find healthy and delicious food recipe here!',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 22,
@@ -151,7 +151,7 @@ class _RecipePageState extends State<RecipePage> {
                     const SizedBox(width: 24),
                     filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
                     const SizedBox(width: 24),
-                    filteredOption('Steal', 'assets/icons8-steak-50.png', 4),
+                    filteredOption('Steak', 'assets/icons8-steak-50.png', 4),
                   ],
                 ),
               ),
