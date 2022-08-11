@@ -22,10 +22,6 @@ class ProfileMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFFFFFFFE);
-    const tertiaryColor = Color(0xFFE45858);
-    const buttonColor = Color(0xFF6246EA);
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 26, vertical: 8),
       child: TextButton(
@@ -64,7 +60,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void showAlertDialog(BuildContext context) {
+  void showAlertLogout(BuildContext context) {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -81,8 +77,35 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () => Navigator.pop(context, 'Cancel'),
               ),
               TextButton(
-                child: const Text('Yes'),
+                child: const Text('Yes', style: TextStyle(color: buttonColor)),
                 onPressed: () => SystemNavigator.pop(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  void showAlertNotifications(BuildContext context) {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: const Text('Do you want to turn on notifications?'),
+        actions: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: buttonColor),
+                ),
+                onPressed: () => Navigator.pop(context, 'Cancel'),
+              ),
+              TextButton(
+                child: const Text('Yes', style: TextStyle(color: buttonColor)),
+                onPressed: () => Navigator.pop(context, 'Yes'),
               ),
             ],
           ),
@@ -93,13 +116,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFFFFFFFE);
-    const paragraphColor = Color(0xFF2B2C34);
-    const buttonTextColor = Color(0xFFFFFFFE);
-    const buttonColor = Color(0xFF6246EA);
-    const secondaryColor = Color(0xFFD1D1E9);
-    const tertiaryColor = Color(0xFFE45858);
-
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -112,19 +128,10 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Foodie',
+              'Profile',
               style: TextStyle(color: primaryColor),
             ),
             SizedBox(width: 6),
-            Icon(
-              Icons.restaurant_menu,
-              color: primaryColor,
-            ),
-            SizedBox(width: 6),
-            Text(
-              'Recipe',
-              style: TextStyle(color: primaryColor),
-            ),
           ],
         ),
         toolbarHeight: 80,
@@ -132,83 +139,92 @@ class _ProfilePageState extends State<ProfilePage> {
         centerTitle: true,
         backgroundColor: buttonColor,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          CircleAvatar(
-            child: SizedBox(height: 30),
-            backgroundColor: Colors.black,
-            radius: 50,
-            backgroundImage: NetworkImage(
-                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
-          ),
-          SizedBox(height: 16),
-          Text(
-            'Natalie Portman',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 20,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: 30),
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(
+                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
             ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            'natalie.man@gmail.com',
-            style: TextStyle(
-              color: paragraphColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
+            SizedBox(height: 20),
+            Text(
+              'Natalie Portman',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
             ),
-          ),
-          SizedBox(height: 8),
-          Divider(
-            color: Colors.grey,
-            thickness: 0.6,
-          ),
-          SizedBox(height: 6),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ProfileMenu(
-                text: "My Account",
-                icon: const Icon(
-                  Icons.person,
-                  color: primaryColor,
-                ),
-                press: () => {},
+            SizedBox(height: 8),
+            Text(
+              'natalie.man@gmail.com',
+              style: TextStyle(
+                color: paragraphColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
               ),
-              ProfileMenu(
-                text: "Notifications",
-                icon: const Icon(
-                  Icons.notifications,
-                  color: primaryColor,
-                ),
-                press: () => {},
+            ),
+            SizedBox(height: 12),
+            Divider(
+              color: Colors.grey,
+              thickness: 0.6,
+            ),
+            SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Column(
+                children: [
+                  ProfileMenu(
+                    text: "My Account",
+                    icon: const Icon(
+                      Icons.person,
+                      color: primaryColor,
+                    ),
+                    press: () => {},
+                  ),
+                  ProfileMenu(
+                    text: "Notifications",
+                    icon: const Icon(
+                      Icons.notifications,
+                      color: primaryColor,
+                    ),
+                    press: () => {showAlertNotifications(context)},
+                  ),
+                  ProfileMenu(
+                    text: "Recipes",
+                    icon: const Icon(
+                      Icons.dining,
+                      color: primaryColor,
+                    ),
+                    press: () => {},
+                  ),
+                  ProfileMenu(
+                    text: "FAQ",
+                    icon: const Icon(
+                      Icons.question_mark,
+                      color: primaryColor,
+                    ),
+                    press: () => {},
+                  ),
+                  ProfileMenu(
+                    text: "Logout",
+                    icon: const Icon(
+                      Icons.logout,
+                      color: primaryColor,
+                    ),
+                    press: () => {
+                      showAlertLogout(context),
+                    },
+                  ),
+                ],
               ),
-              ProfileMenu(
-                text: "Recipes",
-                icon: const Icon(
-                  Icons.dining,
-                  color: primaryColor,
-                ),
-                press: () => {},
-              ),
-              ProfileMenu(
-                text: "Logout",
-                icon: const Icon(
-                  Icons.logout,
-                  color: primaryColor,
-                ),
-                press: () => {
-                  Navigator.pop(context, true),
-                  showAlertDialog(context),
-                },
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

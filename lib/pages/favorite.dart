@@ -100,8 +100,8 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourite',
-              style: TextStyle(color: paragraphColor),
+              'Favourites',
+              style: TextStyle(color: primaryColor),
             ),
           ],
         ),
