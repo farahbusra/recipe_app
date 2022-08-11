@@ -67,29 +67,68 @@ class _RecipePageState extends State<RecipePage> {
               const SizedBox(
                 height: 20,
               ),
-              CupertinoSearchTextField(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                borderRadius: BorderRadius.circular(6),
-                placeholder: 'Search Recipe',
+              // CupertinoSearchTextField(
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              //   borderRadius: BorderRadius.circular(6),
+              //   placeholder: 'Ingredients Name',
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'Please enter recipe name',
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: TextField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                            hintText: 'Food name',
+                            border: OutlineInputBorder()),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(buttonColor)),
+                    child: const Text('Search'),
+                    onPressed: _isRecipeNameEmpty
+                        ? null
+                        : () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments:
+                                    RecipeDetail(foodName: _controller.text));
+                          },
+                  )
+                ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              ListView(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  filteredOption(
-                      'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
-                  const SizedBox(width: 24),
-                  filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
-                  const SizedBox(width: 24),
-                  filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                  const SizedBox(width: 24),
-                  filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
-                  const SizedBox(width: 24),
-                  filteredOption('Steal', 'assets/icons8-steak-50.png', 4),
-                ],
+              Expanded(
+                child: ListView(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    filteredOption(
+                        'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
+                    const SizedBox(width: 24),
+                    filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
+                    const SizedBox(width: 24),
+                    filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
+                    const SizedBox(width: 24),
+                    filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
+                    const SizedBox(width: 24),
+                    filteredOption('Steal', 'assets/icons8-steak-50.png', 4),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -106,39 +145,6 @@ class _RecipePageState extends State<RecipePage> {
           ),
         ),
       ),
-      
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Please enter recipe name',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                  hintText: 'Food name', border: OutlineInputBorder()),
-            ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(buttonColor)),
-            child: const Text('Search'),
-            onPressed: _isRecipeNameEmpty
-                ? null
-                : () {
-                    Navigator.pushNamed(context, '/recipedetail',
-                        arguments: RecipeDetail(foodName: _controller.text));
-                  },
-          )
-        ],
-      )),
     );
   }
 
