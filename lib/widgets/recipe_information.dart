@@ -68,7 +68,7 @@ class RecipeInformation extends StatelessWidget {
                     }));
               },
               child: Container(
-                padding: EdgeInsets.only(bottom: 12),
+                padding: EdgeInsets.only(bottom: 16),
                 child: Card(
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -109,13 +109,13 @@ class RecipeInformation extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 8),
+                                    const SizedBox(height: 12),
                                     Text(
                                       'Origin: ${recipeName.meals.elementAt(index).strArea}',
                                       style: GoogleFonts.lato(
                                         textStyle: TextStyle(
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w600,
                                           color: paragraphColor,
                                         ),
                                       ),
