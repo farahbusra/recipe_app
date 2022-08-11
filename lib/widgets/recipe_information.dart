@@ -59,7 +59,8 @@ class RecipeInformation extends StatelessWidget {
                 child: Card(
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
-                      color: Color.fromARGB(255, 16, 0, 70).withOpacity(0.4),
+                      color: const Color.fromARGB(255, 192, 196, 255)
+                          .withOpacity(0.4),
                       width: 1,
                     ),
                   ),
