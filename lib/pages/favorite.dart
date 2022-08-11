@@ -8,10 +8,10 @@ class recipeCard extends StatelessWidget {
   final String cookTime;
   final String thumbnailUrl;
   recipeCard({
-    @required this.title,
-    @required this.cookTime,
-    @required this.rating,
-    @required this.thumbnailUrl,
+    required this.title,
+    required this.cookTime,
+    required this.rating,
+    required this.thumbnailUrl,
   });
 
   @override
@@ -68,13 +68,13 @@ class recipeCard extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
+                    color: Colors.white.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
                       Icon(
-                        Icons.star,
+                        Icons.favorite,
                         color: Colors.yellow,
                         size: 18,
                       ),
@@ -87,7 +87,7 @@ class recipeCard extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
+                    color: Colors.white.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
