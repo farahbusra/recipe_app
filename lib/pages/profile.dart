@@ -23,10 +23,10 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8),
       child: TextButton(
         style: TextButton.styleFrom(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: tertiaryColor,
         ),
@@ -34,14 +34,15 @@ class ProfileMenu extends StatelessWidget {
         child: Row(
           children: [
             icon,
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Expanded(
                 child: Text(text,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: const TextStyle(
+                      color: primaryColor,
                       fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ))),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: primaryColor,
             ),
@@ -129,9 +130,8 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Text(
               'Profile',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
-            SizedBox(width: 6),
           ],
         ),
         toolbarHeight: 80,

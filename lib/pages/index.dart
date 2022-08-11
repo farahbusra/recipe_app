@@ -61,7 +61,7 @@ class _MyIndexState extends State<MyIndex> {
 
       // Bottom Navigation Bar - To navigate between different pages
       bottomNavigationBar: Container(
-        color: secondaryColor,
+        // color: secondaryColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: GNav(

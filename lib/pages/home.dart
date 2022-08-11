@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               'Foodie',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
             SizedBox(width: 6),
             Icon(
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 6),
             Text(
               'Recipe',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
         ),
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 4),
               Text(
-                'Make your own food,\nstay at home!',
+                'Make your own food,',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 26,
@@ -83,7 +83,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              Text(
+                'stay at home!',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w900,
+                    color: tertiaryColor,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
               // Search Bar Function
               CupertinoSearchTextField(
                 padding:
@@ -91,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(6),
                 placeholder: 'Search Recipe',
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               Text(
                 'Popular Recipes',
                 style: GoogleFonts.lato(
@@ -106,17 +116,9 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 300,
                 child: ListView(
+                  physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    recipeCard(),
-                    const SizedBox(width: 20),
-                    recipeCard(),
-                    const SizedBox(width: 20),
-                    recipeCard(),
-                    const SizedBox(width: 20),
-                    recipeCard(),
-                    const SizedBox(width: 20),
-                  ],
+                  // children: popularRecipeCard(),
                 ),
               )
             ],
@@ -126,21 +128,60 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget recipeCard() => Container(
-        width: 300,
-        // height: 240,
-        color: Colors.grey,
-        child: Column(
-          children: [
-            Image.asset('assets/onboarding_1.png'),
-            Text(
-              'Chicken',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
-            )
-          ],
-        ),
-      );
+//   List<Widget> popularRecipeCard() {
+//     List<Widget> popularList = [];
+//     // getRecipes basically get the recipe data from API
+//     for (var i = 0; i < getRecipes().length; i++) {
+//       popularList.add(buildPopularRecipeCard(getRecipes()[i], i));
+//     }
+//     return popularList;
+//   }
+
+//   Widget buildPopularRecipeCard(Recipe recipe, int index) {
+//     const primaryColor = Color(0xFFFFFFFE);
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: primaryColor,
+//         borderRadius: BorderRadius.all(
+//           Radius.circular(12),
+//         ),
+//         boxShadow: [pillOptionShaddow],
+//       ),
+//       margin: EdgeInsets.only(
+//           right: 16, left: index == 0 ? 16 : 0, bottom: 16, top: 8),
+//       padding: const EdgeInsets.all(16),
+//       width: 220,
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.stretch,
+//         children: [
+//           Expanded(
+//             child: Hero(
+//               tag: recipe.image,
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                   image: DecorationImage(
+//                     image: AssetImage('recipe.image'),
+//                     fit: BoxFit.contain,
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           ),
+//           const SizedBox(
+//             height: 8,
+//           ),
+//           buildRecipeTitle(recipe.title),
+//           buildRecipeParagraph(recipe.description),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+  BoxShadow pillOptionShaddow = BoxShadow(
+    color: Colors.grey.withOpacity(0.2),
+    spreadRadius: 2,
+    blurRadius: 8,
+    offset: Offset(0, 0),
+  );
 }
