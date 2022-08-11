@@ -53,8 +53,8 @@ class RecipeDetail extends StatelessWidget {
               if (state is RecipeLoading) {
                 return const CircularProgressIndicator();
               } else if (state is RecipeLoaded) {
-                return RecipeInformation(
-                    recipeName: state.recipeName, meal: state.meal.first);
+                return RecipeInformation(recipeName: state.recipeName);
+                // , meal: state.meal.)
               } else {
                 return Text(state is RecipeError ? state.errorMessage : '');
               }

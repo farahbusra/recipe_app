@@ -18,7 +18,9 @@ class RecipeName {
   String toJson() => json.encode(toMap());
 
   factory RecipeName.fromMap(Map<String, dynamic> json) => RecipeName(
-        meals: List<Meal>.from(json["meals"].map((x) => Meal.fromMap(x))),
+        meals: json["meals"] == null
+            ? <Meal>[]
+            : List<Meal>.from(json["meals"].map((x) => Meal.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
