@@ -10,12 +10,9 @@ class RecipePage extends StatefulWidget {
 }
 
 class _RecipePageState extends State<RecipePage> {
-<<<<<<<<< Temporary merge branch 1
   late final TextEditingController _controller;
   bool _isRecipeNameEmpty = true;
-=========
   List<bool> optionSelected = [true, false, false, false, false];
->>>>>>>>> Temporary merge branch 2
 
   @override
   void initState() {
@@ -108,43 +105,7 @@ class _RecipePageState extends State<RecipePage> {
             ],
           ),
         ),
-      ),
-<<<<<<<<< Temporary merge branch 1
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Please enter recipe name',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                  hintText: 'Food name', border: OutlineInputBorder()),
-            ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(buttonColor)),
-            child: const Text('Search'),
-            onPressed: _isRecipeNameEmpty
-                ? null
-                : () {
-                    Navigator.pushNamed(context, '/recipedetail',
-                        arguments: RecipeDetail(foodName: _controller.text));
-                  },
-          )
-        ],
-      )),
-=========
->>>>>>>>> Temporary merge branch 2
-    );
+      )
   }
 
   Widget filteredOption(String options, String image, int index) {
