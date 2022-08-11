@@ -110,62 +110,92 @@ class _RecipePageState extends State<RecipePage> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(
-                    width: 270,
+                  Container(
+                    width: 260,
                     height: 60,
                     child: TextField(
                       controller: _controller,
                       decoration: InputDecoration(
+                          // icon: Icon(Icons.dining, color: buttonColor),
                           hintText: 'Enter Recipe Name',
                           border: OutlineInputBorder()),
                     ),
+                    margin: EdgeInsets.only(right: 8),
                   ),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(buttonColor),
+                  ConstrainedBox(
+                    constraints: BoxConstraints.tightFor(width: 80, height: 60),
+                    child: Container(
+                      padding: EdgeInsets.only(top: 4, bottom: 4),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(buttonColor),
+                          // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: Text(
+                          'Search',
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w800,
+                              color: primaryColor,
+                            ),
+                          ),
+                        ),
+                        onPressed: _isRecipeNameEmpty
+                            ? null
+                            : () {
+                                Navigator.pushNamed(context, '/recipedetail',
+                                    arguments: RecipeDetail(
+                                        foodName: _controller.text));
+                              },
+                      ),
                     ),
-                    child: const Text('Search'),
-                    onPressed: _isRecipeNameEmpty
-                        ? null
-                        : () {
-                            Navigator.pushNamed(context, '/recipedetail',
-                                arguments:
-                                    RecipeDetail(foodName: _controller.text));
-                          },
-                  )
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              Expanded(
-                child: ListView(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    filteredOption(
-                        'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
-                    const SizedBox(width: 24),
-                    filteredOption('Fish', 'assets/icons8-fish-food-50.png', 1),
-                    const SizedBox(width: 24),
-                    filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                    const SizedBox(width: 24),
-                    filteredOption('Rice', 'assets/icons8-rice-bowl-50.png', 3),
-                    const SizedBox(width: 24),
-                    filteredOption('Steak', 'assets/icons8-steak-50.png', 4),
-                  ],
+              Text(
+                'All Recipe List',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: paragraphColor,
+                  ),
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 12,
               ),
-              Text('All Recipe'),
-              // Container(
-              //   height: 190,
-              //   child: PageView(
-              //     physics: BouncingScrollPhysics(),
-              //     children: buildRecipeList(),
-              //   ),
-              // )
+              Container(
+                height: 70,
+                child: Expanded(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      filteredOption(
+                          'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
+                      const SizedBox(width: 16),
+                      filteredOption(
+                          'Fish', 'assets/icons8-fish-food-50.png', 1),
+                      const SizedBox(width: 16),
+                      filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
+                      const SizedBox(width: 16),
+                      filteredOption(
+                          'Rice', 'assets/icons8-rice-bowl-50.png', 3),
+                      const SizedBox(width: 16),
+                      filteredOption('Steak', 'assets/icons8-steak-50.png', 4),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              // Try to recall all the food list
             ],
           ),
         ),
@@ -180,104 +210,55 @@ class _RecipePageState extends State<RecipePage> {
           optionSelected[index] = !optionSelected[index];
         });
       },
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-          color: optionSelected[index]
-              ? const Color(0xFFE45858)
-              : const Color(0xFFFFFFFE),
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          boxShadow: [pillOptionShaddow],
-        ),
-        padding: EdgeInsets.symmetric(
-          horizontal: 12,
-        ),
-        child: Row(
-          children: [
-            SizedBox(
-              height: 32,
-              width: 32,
-              child: Image.asset(image,
-                  color: optionSelected[index]
-                      ? const Color(0xFFFFFFFE)
-                      : const Color(0xFFE45858)),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Text(
-              options,
-              style: TextStyle(
-                color: optionSelected[index]
-                    ? const Color(0xFFFFFFFE)
-                    : const Color(0xFFE45858),
-                fontWeight: FontWeight.w700,
+      child: Row(
+        children: [
+          Container(
+            height: 50,
+            width: 120,
+            decoration: BoxDecoration(
+              color: optionSelected[index]
+                  ? const Color(0xFF6246EA)
+                  : const Color(0xFFFFFFFE),
+              borderRadius: BorderRadius.all(
+                Radius.circular(30),
               ),
-            )
-          ],
-        ),
+              boxShadow: [pillOptionShaddow],
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 32,
+                  width: 32,
+                  child: Image.asset(image,
+                      color: optionSelected[index]
+                          ? const Color(0xFFFFFFFE)
+                          : const Color(0xFF6246EA)),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  options,
+                  style: TextStyle(
+                    color: optionSelected[index]
+                        ? const Color(0xFFFFFFFE)
+                        : const Color(0xFF6246EA),
+                    fontWeight: FontWeight.w700,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
   BoxShadow pillOptionShaddow = BoxShadow(
-    color: Colors.grey.withOpacity(0.2),
+    color: const Color.fromARGB(255, 192, 196, 255).withOpacity(0.2),
     spreadRadius: 2,
     blurRadius: 8,
-    offset: Offset(0, 0),
+    offset: const Offset(0, 0),
   );
 }
-
-// List<Widget> buildRecipeList() {
-//   List<Widget> recipeList = [];
-//   // getRecipes basically get the recipe data from API
-//   for (var i = 0; i < getRecipes().length; i++) {
-//     recipeList.add(buildReciperadiusList(getRecipes()[i], i));
-//   }
-//   return recipeList;
-// }
-
-// Widget buildReciperadiusList(Recipe recipe) {
-//   return Container(
-//     margin: EdgeInsets.all(16),
-//     decoration: BoxDecoration(
-//       color: Color(0xFFFFFFFE),
-//       borderRadius: BorderRadius.all(
-//         Radius.circular(20),
-//       ),
-//       boxShadow: [pillOptionShaddow],
-//     ),
-//     child: Row(
-//       children: [
-//         Container(
-//           height: 160,
-//           width: 160,
-//           decoration: BoxDecoration(
-//             image: DecorationImage(
-//                 image: AssetImage(recipe.image), fit: BoxFit.fitHeight),
-//           ),
-//         ),
-//         Expanded(
-//             child: Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 16),
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               buildRecipeTitle(recipe.title),
-//               buildRecipeSubTitle(recipe.description),
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.end,
-//                 children: [
-//                   Icon(Icons.favorite_outline),
-//                 ],
-//               )
-//             ],
-//           ),
-//         ))
-//       ],
-//     ),
-//   );
-// }
