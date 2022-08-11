@@ -8,12 +8,9 @@ class RecipeInformation extends StatelessWidget {
   const RecipeInformation({
     Key? key,
     required this.recipeName,
-  })
-  // required this.meal
-  : super(key: key);
+  }) : super(key: key);
 
   final RecipeName recipeName;
-  // final Meal meal;
 
   @override
   Widget build(BuildContext context) {
@@ -47,28 +44,11 @@ class RecipeInformation extends StatelessWidget {
           physics: ScrollPhysics(),
           itemBuilder: ((context, index) {
             return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/recipefullinfo',
-                    arguments: RecipeFullInfo(meal: {
-                      'strMealThumb':
-                          recipeName.meals.elementAt(index).strMealThumb,
-                      'strMeal': recipeName.meals.elementAt(index).strMeal,
-                      'strCategory':
-                          recipeName.meals.elementAt(index).strCategory,
-                      'strArea': recipeName.meals.elementAt(index).strArea,
-                      'strTags': recipeName.meals.elementAt(index).strTags,
-                      'strYouTube':
-                          recipeName.meals.elementAt(index).strYoutube,
-                      'strIngredient':
-                          recipeName.meals.elementAt(index).strIngredient,
-                      'strMeasure':
-                          recipeName.meals.elementAt(index).strMeasure,
-                      'strInstructions':
-                          recipeName.meals.elementAt(index).strInstructions
-                    }));
-              },
-              child: Container(
-                padding: EdgeInsets.only(bottom: 12),
+                onTap: () {
+                  Navigator.pushNamed(context, '/recipefullinfo',
+                      arguments: RecipeFullInfo(
+                          meal: recipeName.meals.elementAt(index)));
+                },
                 child: Card(
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -130,7 +110,7 @@ class RecipeInformation extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              )
             );
           }),
         ),
