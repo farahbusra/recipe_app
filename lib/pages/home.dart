@@ -1,10 +1,10 @@
 import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recipe_app/pages/favorite.dart';
+import 'package:recipe_app/pages/recipe_detail.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -55,122 +55,111 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         backgroundColor: buttonColor,
       ),
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 8),
-              Text(
-                'Hello, Natalie!',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: paragraphColor,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  'Hello, Natalie!',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: paragraphColor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Make your own food,',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w900,
-                    color: paragraphColor,
+                const SizedBox(height: 4),
+                Text(
+                  'Make your own food,',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w900,
+                      color: paragraphColor,
+                    ),
                   ),
                 ),
-              ),
-              Text(
-                'stay at home!',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w900,
-                    color: tertiaryColor,
+                Text(
+                  'stay at home!',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w900,
+                      color: tertiaryColor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              // Landing Page Banner
-              const SizedBox(height: 12),
-              Text(
-                'Popular Recipes',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w900,
-                    color: paragraphColor,
+                const SizedBox(height: 12),
+                // Landing Page Banner
+                const SizedBox(height: 12),
+                Text(
+                  'Popular Recipes',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w900,
+                      color: paragraphColor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              Container(
-                height: 300,
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  // children: popularRecipeCard(),
+                const SizedBox(height: 12),
+                Container(
+                  height: 10,
+                  child: ListView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    // children: popularRecipeCard(),
+                  ),
                 ),
-              )
-            ],
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/recipedetail',
+                            arguments: RecipeDetail(foodName: 'beef'));
+                      },
+                      child: recipeCard(
+                        title: "Beef Dish",
+                        thumbnailUrl:
+                            'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F17%2Fgarlic-butter-prime-rib-FT-RECIPE0621.jpg',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/recipedetail',
+                            arguments: RecipeDetail(foodName: 'soup'));
+                      },
+                      child: recipeCard(
+                        title: "Soups",
+                        thumbnailUrl:
+                            'https://static.onecms.io/wp-content/uploads/sites/9/2020/01/201308-ft-tomato-soup-with-chickpeas-and-pasta-2000.jpg',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/recipedetail',
+                            arguments: RecipeDetail(foodName: 'cake'));
+                      },
+                      child: recipeCard(
+                        title: "Cakes",
+                        thumbnailUrl:
+                            'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F04%2Frhubarb-upside-down-cake-FT-RECIPE0521.jpg',
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-
-//   List<Widget> popularRecipeCard() {
-//     List<Widget> popularList = [];
-//     // getRecipes basically get the recipe data from API
-//     for (var i = 0; i < getRecipes().length; i++) {
-//       popularList.add(buildPopularRecipeCard(getRecipes()[i], i));
-//     }
-//     return popularList;
-//   }
-
-//   Widget buildPopularRecipeCard(Recipe recipe, int index) {
-//     const primaryColor = Color(0xFFFFFFFE);
-//     return Container(
-//       decoration: BoxDecoration(
-//         color: primaryColor,
-//         borderRadius: BorderRadius.all(
-//           Radius.circular(12),
-//         ),
-//         boxShadow: [pillOptionShaddow],
-//       ),
-//       margin: EdgeInsets.only(
-//           right: 16, left: index == 0 ? 16 : 0, bottom: 16, top: 8),
-//       padding: const EdgeInsets.all(16),
-//       width: 220,
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.stretch,
-//         children: [
-//           Expanded(
-//             child: Hero(
-//               tag: recipe.image,
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                   image: DecorationImage(
-//                     image: AssetImage('recipe.image'),
-//                     fit: BoxFit.contain,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//           ),
-//           const SizedBox(
-//             height: 8,
-//           ),
-//           buildRecipeTitle(recipe.title),
-//           buildRecipeParagraph(recipe.description),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
   BoxShadow pillOptionShaddow = BoxShadow(
     color: Colors.grey.withOpacity(0.2),
