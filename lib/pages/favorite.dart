@@ -13,6 +13,9 @@ class recipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFFFFFFFE);
+    const tertiaryColor = Color(0xFFE45858);
+
     return Container(
       margin: EdgeInsets.only(
         top: 0,
@@ -52,7 +55,11 @@ class recipeCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
                 title,
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: TextStyle(
+                  fontSize: 22,
+                  color: primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 textAlign: TextAlign.center,
@@ -66,7 +73,7 @@ class recipeCard extends StatelessWidget {
             margin: EdgeInsets.all(10),
             child: Icon(
               Icons.favorite,
-              color: Colors.red,
+              color: tertiaryColor,
               size: 24,
             ),
           ),
@@ -91,7 +98,7 @@ class _FavouritePageState extends State<FavouritePage> {
     const buttonTextColor = Color(0xFFFFFFFE);
     const buttonColor = Color(0xFF6246EA);
     const secondaryColor = Color(0xFFD1D1E9);
-    const tertiaryColor = Color(0xFFE45858);
+    const tertiar8yColor = Color(0xFFE45858);
 
     return Scaffold(
       backgroundColor: primaryColor,

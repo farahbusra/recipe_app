@@ -53,6 +53,13 @@ flutter:
     - assets/onboarding_3.png
     - assets/splashscreen.png
     - assets/recipe.gif
+    - assets/icons8-cheese-50.png
+    - assets/icons8-fish-food-50.png
+    - assets/icons8-pizza-50.png
+    - assets/icons8-rice-bowl-50.png
+    - assets/icons8-spinach-50.png
+    - assets/icons8-steak-50.png
+    - assets/icons8-thanksgiving-50.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

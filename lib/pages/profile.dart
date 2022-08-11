@@ -42,8 +42,9 @@ class ProfileMenu extends StatelessWidget {
             Expanded(
                 child: Text(text,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: primaryColor,
                       fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ))),
             const Icon(
               Icons.arrow_forward_ios,
@@ -139,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w600,
-              fontSize: 20,
+              fontSize: 22,
             ),
           ),
           SizedBox(height: 8),
@@ -148,10 +149,10 @@ class _ProfilePageState extends State<ProfilePage> {
             style: TextStyle(
               color: paragraphColor,
               fontWeight: FontWeight.w500,
-              fontSize: 16,
+              fontSize: 18,
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 12),
           Divider(
             color: Colors.grey,
             thickness: 0.6,
