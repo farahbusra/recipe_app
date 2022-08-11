@@ -70,7 +70,7 @@ class _RecipePageState extends State<RecipePage> {
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w800,
                         color: paragraphColor,
                       ),
                     ),
@@ -86,7 +86,7 @@ class _RecipePageState extends State<RecipePage> {
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w800,
                         color: paragraphColor,
                       ),
                     ),
@@ -95,7 +95,7 @@ class _RecipePageState extends State<RecipePage> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Find healthy and nutritious food recipe here!',
+                'Find healthy and delicious food recipe here!',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 22,
