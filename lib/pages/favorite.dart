@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:recipe_app/pages/index.dart';
+import 'package:recipe_app/pages/recipe_detail.dart';
 
 class recipeCard extends StatelessWidget {
   final String title;
@@ -112,7 +113,7 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourites',
+              'People\'s Favourites',
               style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
@@ -126,40 +127,82 @@ class _FavouritePageState extends State<FavouritePage> {
         child: Column(
           children: [
             const SizedBox(height: 30),
-            recipeCard(
-              title: "Tomato Soup",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'chicken'));
+              },
+              child: recipeCard(
+                title: "Chicken Dish",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Chicken and Mushroom Pie",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'pie'));
+              },
+              child: recipeCard(
+                title: "Pies",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Macaroni Cheese",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'cheese'));
+              },
+              child: recipeCard(
+                title: "Cheezy",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Risotto",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'fish'));
+              },
+              child: recipeCard(
+                title: "Fish Dish",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Spaghetti Bolognese",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'curry'));
+              },
+              child: recipeCard(
+                title: "Curry",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Chocolate Brownies",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'lamb'));
+              },
+              child: recipeCard(
+                title: "Lamb",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+              ),
             ),
-            recipeCard(
-              title: "Pizza",
-              thumbnailUrl:
-                  'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/recipedetail',
+                    arguments: RecipeDetail(foodName: 'egg'));
+              },
+              child: recipeCard(
+                title: "Egg Dish",
+                thumbnailUrl:
+                    'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+              ),
             ),
           ],
         ),
