@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class RecipeFullInfo extends StatelessWidget {
   const RecipeFullInfo({Key? key, required this.meal}) : super(key: key);
 
-  final Map meal;
+  final Meal meal;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +36,11 @@ class RecipeFullInfo extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
-              Image.network("${meal['strMealThumb']}"),
+              Image.network("${meal.strMealThumb}"),
               Card(
                 child: ListTile(
                     title: Text(
-                  "Dish Name: ${meal['strMeal']}",
+                  "Dish Name: ${meal.strMeal}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -53,7 +53,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Dish Category: ${meal['strCategory']}",
+                  "Dish Category: ${meal.strCategory}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -66,7 +66,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Dish Region: ${meal['strArea']}",
+                  "Dish Region: ${meal.strArea}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -79,7 +79,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Related Taste: ${meal['strTags']}",
+                  "Related Taste: ${meal.strTags}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -92,7 +92,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Video: ${meal['strYouTube']}",
+                  "Video: ${meal.strYoutube}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -105,7 +105,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Ingredients: ${meal['strIngredient'].toString().substring(1, meal['strIngredient'].toString().length - 1)}",
+                  "Ingredients: ${meal.strIngredient.toString().substring(1, meal.strIngredient.toString().length - 1)}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -118,7 +118,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Measurement: ${meal['strMeasure'].toString().substring(1, meal['strMeasure'].toString().length - 1)}",
+                  "Measurement: ${meal.strMeasure.toString().substring(1, meal.strMeasure.toString().length - 1)}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
@@ -131,7 +131,7 @@ class RecipeFullInfo extends StatelessWidget {
               Card(
                 child: ListTile(
                     title: Text(
-                  "Instructions: ${meal['strInstructions']}",
+                  "Instructions: ${meal.strInstructions}",
                   style: TextStyle(fontSize: 15),
                 )),
                 elevation: 9,
