@@ -148,7 +148,7 @@ class _FavouritePageState extends State<FavouritePage> {
       ),
       body: recipeCard(
         title: "My recipe",
-        reting: '4.9',
+        rating: '4.9',
         cookTime: '30 min',
         thumbnailUrl:
             'https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360',
