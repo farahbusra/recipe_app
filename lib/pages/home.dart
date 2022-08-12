@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                   height: 10,
                   child: ListView(
                     physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical,
                     // children: popularRecipeCard(),
                   ),
                 ),
