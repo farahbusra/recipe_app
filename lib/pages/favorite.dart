@@ -144,7 +144,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Chicken Dish",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+                    'https://assets.epicurious.com/photos/5732526f1877f76a0e20831c/master/pass/EP_05102016_PeruvianStyleRoastChicken_recipe_.jpg',
               ),
             ),
             GestureDetector(
@@ -155,7 +155,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Pies",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+                    'https://reviewed-com-res.cloudinary.com/image/fetch/s--zJ5698MN--/b_white,c_limit,cs_srgb,f_auto,fl_progressive.strip_profile,g_center,q_auto,w_1200/https://reviewed-production.s3.amazonaws.com/1536094589012/pie-hero-getty.jpg',
               ),
             ),
             GestureDetector(
@@ -166,7 +166,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Cheezy",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+                    'https://www.seriouseats.com/thmb/TfdXOq89J7LQba1ek4xkcXyMiGY=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__09__20160914-cheesy-recipes-roundup-01-bf9fe25f24a640d78bd6dfd0f023eee7.jpg',
               ),
             ),
             GestureDetector(
@@ -177,7 +177,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Fish Dish",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+                    'https://www.saveur.com/uploads/2019/03/04/GZU6HISCWM7SHGMCGXKIQG3CBU.jpg?auto=webp&width=785&height=588.75',
               ),
             ),
             GestureDetector(
@@ -188,7 +188,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Curry",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+                    'https://static.onecms.io/wp-content/uploads/sites/9/2021/03/10/spicy-chicken-curry-FT-RECIPE0321.jpg',
               ),
             ),
             GestureDetector(
@@ -199,7 +199,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Lamb",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+                    'https://static.onecms.io/wp-content/uploads/sites/9/2019/11/roast-leg-of-lamb-XL-RECIPE1217.jpg',
               ),
             ),
             GestureDetector(
@@ -210,7 +210,7 @@ class _FavouritePageState extends State<FavouritePage> {
               child: recipeCard(
                 title: "Egg Dish",
                 thumbnailUrl:
-                    'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+                    'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F17%2Fegg-bhurjee-FT-RECIPE0521.jpg',
               ),
             ),
           ],
