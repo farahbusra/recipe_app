@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, '/recipedetail',
                             arguments: RecipeDetail(foodName: 'cake'));
                       },
-                      child: recipeCard(
+                      child: RecipeList(
                         title: "Cakes",
                         thumbnailUrl:
                             'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F04%2Frhubarb-upside-down-cake-FT-RECIPE0521.jpg',

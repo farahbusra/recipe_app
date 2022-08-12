@@ -1,5 +1,6 @@
 import 'package:recipe_app/models/recipe_model.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RecipeFullInfo extends StatelessWidget {
   const RecipeFullInfo({Key? key, required this.meal}) : super(key: key);
@@ -77,9 +78,12 @@ class RecipeFullInfo extends StatelessWidget {
                         children: [
                           Text(
                             "${meal.strMeal}",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                color: paragraphColor,
+                              ),
                             ),
                           ),
                         ],
@@ -94,26 +98,65 @@ class RecipeFullInfo extends StatelessWidget {
                             ListTile(
                               title: Text(
                                 "Dish Category",
-                                style: TextStyle(fontSize: 21),
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 24,
+                                      color: tertiaryColor,
+                                      fontWeight: FontWeight.w800),
+                                ),
                               ),
-                              subtitle: Text("${meal.strCategory}",
-                                  style: TextStyle(fontSize: 19)),
+                              subtitle: Text(
+                                "${meal.strCategory}",
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                    fontSize: 18,
+                                    color: paragraphColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
                             ),
                             ListTile(
                               title: Text(
                                 "Dish Origin",
-                                style: TextStyle(fontSize: 21),
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 24,
+                                      color: tertiaryColor,
+                                      fontWeight: FontWeight.w800),
+                                ),
                               ),
-                              subtitle: Text("${meal.strArea}",
-                                  style: TextStyle(fontSize: 19)),
+                              subtitle: Text(
+                                "${meal.strArea}",
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                    fontSize: 18,
+                                    color: paragraphColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
                             ),
                             ListTile(
                               title: Text(
                                 "Related Taste",
-                                style: TextStyle(fontSize: 21),
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 24,
+                                      color: tertiaryColor,
+                                      fontWeight: FontWeight.w800),
+                                ),
                               ),
-                              subtitle: Text("${meal.strTags}",
-                                  style: TextStyle(fontSize: 19)),
+                              subtitle: Text(
+                                "${meal.strTags}",
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                    fontSize: 18,
+                                    color: paragraphColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -147,15 +190,25 @@ class RecipeFullInfo extends StatelessWidget {
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Ingredients',
-                                  style: TextStyle(fontSize: 21)),
+                              Text(
+                                'Ingredients\n',
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 24,
+                                      color: tertiaryColor,
+                                      fontWeight: FontWeight.w800),
+                                ),
+                              ),
                               for (String measure in _getIngredients())
                                 Text(
                                   measure,
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color:
-                                          Color.fromARGB(255, 114, 113, 113)),
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                      fontSize: 18,
+                                      color: paragraphColor,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
                                 ),
                             ],
                           ),
@@ -177,11 +230,24 @@ class RecipeFullInfo extends StatelessWidget {
                           children: [
                             ListTile(
                               title: Text(
-                                "Instructions",
-                                style: TextStyle(fontSize: 21),
+                                "Instructions\n",
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 24,
+                                      color: tertiaryColor,
+                                      fontWeight: FontWeight.w800),
+                                ),
                               ),
-                              subtitle: Text("${meal.strInstructions}",
-                                  style: TextStyle(fontSize: 19)),
+                              subtitle: Text(
+                                "${meal.strInstructions}",
+                                style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                    fontSize: 18,
+                                    color: paragraphColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: 18,
