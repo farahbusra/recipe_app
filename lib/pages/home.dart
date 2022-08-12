@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe_app/pages/favorite.dart';
+import 'package:recipe_app/pages/recipe.dart';
 import 'package:recipe_app/pages/recipe_detail.dart';
 
 class HomePage extends StatefulWidget {
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, '/recipedetail',
                             arguments: RecipeDetail(foodName: 'beef'));
                       },
-                      child: recipeCard(
+                      child: RecipeList(
                         title: "Beef Dish",
                         thumbnailUrl:
                             'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F17%2Fgarlic-butter-prime-rib-FT-RECIPE0621.jpg',
@@ -134,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, '/recipedetail',
                             arguments: RecipeDetail(foodName: 'soup'));
                       },
-                      child: recipeCard(
+                      child: RecipeList(
                         title: "Soups",
                         thumbnailUrl:
                             'https://static.onecms.io/wp-content/uploads/sites/9/2020/01/201308-ft-tomato-soup-with-chickpeas-and-pasta-2000.jpg',

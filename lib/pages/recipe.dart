@@ -61,241 +61,246 @@ class _RecipePageState extends State<RecipePage> {
         backgroundColor: buttonColor,
       ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Foodie',
-                    style: GoogleFonts.lato(
-                      textStyle: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w800,
-                        color: paragraphColor,
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Foodie',
+                      style: GoogleFonts.lato(
+                        textStyle: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.w800,
+                          color: paragraphColor,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 6),
-                  Icon(
-                    Icons.restaurant_menu,
-                    color: paragraphColor,
-                  ),
-                  SizedBox(width: 6),
-                  Text(
-                    'Recipe',
-                    style: GoogleFonts.lato(
-                      textStyle: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w800,
-                        color: paragraphColor,
+                    SizedBox(width: 6),
+                    Icon(
+                      Icons.restaurant_menu,
+                      color: paragraphColor,
+                    ),
+                    SizedBox(width: 6),
+                    Text(
+                      'Recipe',
+                      style: GoogleFonts.lato(
+                        textStyle: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.w800,
+                          color: paragraphColor,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Find healthy and delicious food recipe here!',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                    color: paragraphColor,
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'Find healthy and delicious food recipe here!',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                      color: paragraphColor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 260,
-                    height: 60,
-                    child: TextField(
-                      controller: _controller,
-                      decoration: InputDecoration(
-                          // icon: Icon(Icons.dining, color: buttonColor),
-                          hintText: 'Enter Recipe Name',
-                          border: OutlineInputBorder()),
+                const SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: 260,
+                      height: 60,
+                      child: TextField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                            // icon: Icon(Icons.dining, color: buttonColor),
+                            hintText: 'Enter Recipe Name',
+                            border: OutlineInputBorder()),
+                      ),
+                      margin: EdgeInsets.only(right: 8),
                     ),
-                    margin: EdgeInsets.only(right: 8),
-                  ),
-                  ConstrainedBox(
-                    constraints: BoxConstraints.tightFor(width: 80, height: 60),
-                    child: Container(
-                      padding: EdgeInsets.only(top: 4, bottom: 4),
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(buttonColor),
-                          // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
-                        child: Text(
-                          'Search',
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w800,
-                              color: primaryColor,
+                    ConstrainedBox(
+                      constraints:
+                          BoxConstraints.tightFor(width: 80, height: 60),
+                      child: Container(
+                        padding: EdgeInsets.only(top: 4, bottom: 4),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(buttonColor),
+                            // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          child: Text(
+                            'Search',
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                color: primaryColor,
+                              ),
                             ),
                           ),
+                          onPressed: _isRecipeNameEmpty
+                              ? null
+                              : () {
+                                  Navigator.pushNamed(context, '/recipedetail',
+                                      arguments: RecipeDetail(
+                                          foodName: _controller.text));
+                                },
                         ),
-                        onPressed: _isRecipeNameEmpty
-                            ? null
-                            : () {
-                                Navigator.pushNamed(context, '/recipedetail',
-                                    arguments: RecipeDetail(
-                                        foodName: _controller.text));
-                              },
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                'All Recipe List',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    color: paragraphColor,
+                  ],
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  'All Recipe List',
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      color: paragraphColor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(
-                height: 70,
-                child: Expanded(
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      filteredOption(
-                          'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
-                      const SizedBox(width: 16),
-                      filteredOption(
-                          'Fish', 'assets/icons8-fish-food-50.png', 1),
-                      const SizedBox(width: 16),
-                      filteredOption('Vege', 'assets/icons8-spinach-50.png', 2),
-                      const SizedBox(width: 16),
-                      filteredOption(
-                          'Rice', 'assets/icons8-rice-bowl-50.png', 3),
-                      const SizedBox(width: 16),
-                      filteredOption('Steak', 'assets/icons8-steak-50.png', 4),
-                    ],
+                const SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  height: 70,
+                  child: Expanded(
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        filteredOption(
+                            'Chicken', 'assets/icons8-thanksgiving-50.png', 0),
+                        const SizedBox(width: 16),
+                        filteredOption(
+                            'Fish', 'assets/icons8-fish-food-50.png', 1),
+                        const SizedBox(width: 16),
+                        filteredOption(
+                            'Vege', 'assets/icons8-spinach-50.png', 2),
+                        const SizedBox(width: 16),
+                        filteredOption(
+                            'Rice', 'assets/icons8-rice-bowl-50.png', 3),
+                        const SizedBox(width: 16),
+                        filteredOption(
+                            'Steak', 'assets/icons8-steak-50.png', 4),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              // Try to recall all the food list
-              Container(
-                width: 360,
-                height: 220,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 24),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'chicken'));
-                        },
-                        child: RecipeList(
-                          title: "Chicken Dish",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+                // Try to recall all the food list
+                Container(
+                  width: 360,
+                  height: 220,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 24),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'chicken'));
+                          },
+                          child: RecipeList(
+                            title: "Chicken Dish",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'pie'));
-                        },
-                        child: RecipeList(
-                          title: "Pies",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'pie'));
+                          },
+                          child: RecipeList(
+                            title: "Pies",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'cheese'));
-                        },
-                        child: RecipeList(
-                          title: "Cheezy",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'cheese'));
+                          },
+                          child: RecipeList(
+                            title: "Cheezy",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'fish'));
-                        },
-                        child: RecipeList(
-                          title: "Fish Dish",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'fish'));
+                          },
+                          child: RecipeList(
+                            title: "Fish Dish",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'curry'));
-                        },
-                        child: RecipeList(
-                          title: "Curry",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'curry'));
+                          },
+                          child: RecipeList(
+                            title: "Curry",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'lamb'));
-                        },
-                        child: RecipeList(
-                          title: "Lamb",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'lamb'));
+                          },
+                          child: RecipeList(
+                            title: "Lamb",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'egg'));
-                        },
-                        child: RecipeList(
-                          title: "Egg Dish",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'egg'));
+                          },
+                          child: RecipeList(
+                            title: "Egg Dish",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/recipedetail',
-                              arguments: RecipeDetail(foodName: 'beef'));
-                        },
-                        child: RecipeList(
-                          title: "Something Beefy",
-                          thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/recipedetail',
+                                arguments: RecipeDetail(foodName: 'beef'));
+                          },
+                          child: RecipeList(
+                            title: "Something Beefy",
+                            thumbnailUrl:
+                                'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
