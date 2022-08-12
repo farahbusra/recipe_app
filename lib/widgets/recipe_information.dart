@@ -44,73 +44,72 @@ class RecipeInformation extends StatelessWidget {
           physics: ScrollPhysics(),
           itemBuilder: ((context, index) {
             return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/recipefullinfo',
-                      arguments: RecipeFullInfo(
-                          meal: recipeName.meals.elementAt(index)));
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Color.fromARGB(255, 18, 0, 78).withOpacity(0.2),
-                      width: 1,
-                    ),
+              onTap: () {
+                Navigator.pushNamed(context, '/recipefullinfo',
+                    arguments: RecipeFullInfo(
+                        meal: recipeName.meals.elementAt(index)));
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 18, 0, 78).withOpacity(0.2),
+                    width: 1,
                   ),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.network(
-                        '${recipeName.meals.elementAt(index).strMealThumb}',
-                        fit: BoxFit.fill,
-                        height: 180,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(
-                              maxWidth: 200,
-                            ),
-                            child: //move the contaier here
-                                Container(
-                              width: 180,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '${recipeName.meals.elementAt(index).strMeal}',
-                                      style: GoogleFonts.lato(
-                                        textStyle: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w900,
-                                          color: paragraphColor,
-                                        ),
+                ),
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.network(
+                      '${recipeName.meals.elementAt(index).strMealThumb}',
+                      fit: BoxFit.fill,
+                      height: 180,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxWidth: 200,
+                          ),
+                          child: //move the contaier here
+                              Container(
+                            width: 180,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${recipeName.meals.elementAt(index).strMeal}',
+                                    style: GoogleFonts.lato(
+                                      textStyle: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w900,
+                                        color: paragraphColor,
                                       ),
                                     ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      'Origin: ${recipeName.meals.elementAt(index).strArea}',
-                                      style: GoogleFonts.lato(
-                                        textStyle: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                          color: paragraphColor,
-                                        ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    'Origin: ${recipeName.meals.elementAt(index).strArea}',
+                                    style: GoogleFonts.lato(
+                                      textStyle: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: paragraphColor,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              )
+              ),
             );
           }),
         ),
