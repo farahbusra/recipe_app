@@ -1,10 +1,10 @@
 import 'router_cubit.dart';
 
-class RouterState<T extends TabData> {
+class RouterState<Tab extends TabData> {
   RouterState({required this.data});
-  final T data;
-  bool isInside<D extends TabData>() {
-    return data is D;
+  final Tab data;
+  bool isInside<Data extends TabData>() {
+    return data is Data;
   }
 }
 

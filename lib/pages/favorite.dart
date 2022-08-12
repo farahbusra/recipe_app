@@ -15,6 +15,9 @@ class recipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFFFFFFFE);
+    const paragraphColor = Color(0xFF2B2C34);
+    const buttonTextColor = Color(0xFFFFFFFE);
+    const buttonColor = Color(0xFF6246EA);
     const tertiaryColor = Color(0xFFE45858);
 
     return Container(
@@ -70,12 +73,18 @@ class recipeCard extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.topRight,
-            padding: EdgeInsets.all(5),
-            margin: EdgeInsets.all(10),
-            child: Icon(
-              Icons.favorite,
-              color: tertiaryColor,
-              size: 24,
+            padding: EdgeInsets.all(4),
+            margin: EdgeInsets.all(8),
+            child: CircleAvatar(
+              radius: 25,
+              backgroundColor: primaryColor,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite,
+                  color: buttonColor,
+                ),
+              ),
             ),
           ),
         ],
@@ -113,7 +122,7 @@ class _FavouritePageState extends State<FavouritePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourites',
+              'People\'s Favourites',
               style: TextStyle(color: primaryColor, fontSize: 22),
             ),
           ],
