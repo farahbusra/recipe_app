@@ -1,6 +1,6 @@
 # recipe_app
 
-A new Flutter project.
+Foodie Recipe is a cross-platform mobile application that allows users to look for food recipe to cook a delicious and healthy meal.
 
 ## Getting Started
 
@@ -16,3 +16,7 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ![plot](./demo/demo1.png)
+![plot](./demo/demo2.png)
+![plot](./demo/demo3.png)
+![plot](./demo/demo4.png)
+![plot](./demo/demo5.png)
