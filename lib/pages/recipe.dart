@@ -108,7 +108,7 @@ class _RecipePageState extends State<RecipePage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,7 +158,7 @@ class _RecipePageState extends State<RecipePage> {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
               Text(
                 'All Recipe List',
@@ -195,22 +195,20 @@ class _RecipePageState extends State<RecipePage> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
               // Try to recall all the food list
               Container(
-                width: 280,
+                width: 360,
+                height: 220,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 24),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'chicken'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Chicken Dish",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/mUm3dii5LvNDoVJ6VeRhxj-768-80.jpg.webp',
@@ -221,7 +219,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'pie'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Pies",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/ojyy8dW7aDupLbPGjMDgFA-768-80.jpg.webp',
@@ -232,7 +230,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'cheese'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Cheezy",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/7hPCQ8T4PH8e7gC4q5GnF4-768-80.jpg.webp',
@@ -243,7 +241,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'fish'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Fish Dish",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/9gqY3eeyvGFDdbwjSH7qkg-768-80.jpg.webp',
@@ -254,7 +252,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'curry'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Curry",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
@@ -265,7 +263,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'lamb'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Lamb",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/qAoTS5bzvgYPuHENDtu2n4-768-80.jpg.webp',
@@ -276,7 +274,7 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'egg'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Egg Dish",
                           thumbnailUrl:
                               'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
@@ -287,10 +285,10 @@ class _RecipePageState extends State<RecipePage> {
                           Navigator.pushNamed(context, '/recipedetail',
                               arguments: RecipeDetail(foodName: 'beef'));
                         },
-                        child: recipeCard(
+                        child: RecipeList(
                           title: "Something Beefy",
                           thumbnailUrl:
-                              'https://cdn.mos.cms.futurecdn.net/kHhBBQ9pmMEimcq5PL8SZF-768-80.jpg.webp',
+                              'https://cdn.mos.cms.futurecdn.net/pM6x7NJ3TWWW5hS3Y8st8Z-768-80.jpg.webp',
                         ),
                       ),
                     ],
@@ -365,10 +363,10 @@ class _RecipePageState extends State<RecipePage> {
 }
 
 class RecipeList extends StatelessWidget {
-  late final String title;
+  final String title;
 
-  late final String thumbnailUrl;
-  recipeCard({
+  final String thumbnailUrl;
+  RecipeList({
     required this.title,
     required this.thumbnailUrl,
   });
